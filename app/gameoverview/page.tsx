@@ -1,7 +1,7 @@
 'use client';
 import { Rubik } from "next/font/google";
 import { useState } from "react";
-// High-quality vector icons for info and external links
+import Rain from '../components/rain';
 import { Info, ExternalLink } from "lucide-react";
 
 const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
@@ -154,11 +154,22 @@ export default function GameOverview() {
   ];
 
   const generalLinks = [
-    { title: "VEX V5 Game Manual", url: "https://www.vexrobotics.com/v5/competition/vrc-current-game" },
-    { title: "VRC Safety Standards", url: "https://www.roboticseducation.org/documents/2023/06/vrc-safety-policy.pdf/" }
+    { title: "VEX V5 Game Manual", url: "https://www.vexrobotics.com/push-back-manual?srsltid=AfmBOopYWEGAgtVb5QmFB10j9U7lTJrwfUl5YXwo7-dubIiT1OiQqyxb" },
+    { title: "VRC Safety Standards", url: "https://v5rc-kb.recf.org/hc/en-us/articles/9654207108503-Safety-Procedures-at-VEX-V5-Robotics-Competition-Events/" }
+  ];
+
+  const scoringData = [
+    { item: "Autonomous Bonus", points: "10 points" },
+    { item: "Each Block Scored", points: "3 points" },
+    { item: "Each Controlled Zone in a Long Goal", points: "10 points" },
+    { item: "Controlled Center Goal (Upper)", points: "8 points" },
+    { item: "Controlled Center Goal (Lower)", points: "6 points" },
+    { item: "1 Parked Alliance Robot", points: "8 points" },
+    { item: "2 Parked Alliance Robots", points: "30 points" }
   ];
 
   return (
+
     <main
       className={rubik.className}
       style={{
@@ -169,6 +180,14 @@ export default function GameOverview() {
         margin: '0 auto',
       }}
     >
+
+      {/* SPINNING OMNI-WHEEL + GEAR */}
+
+    <img src="/wheel.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
+    <img src="/gear.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
+
+    <Rain />
+        
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
           GAME ANALYSIS
@@ -191,9 +210,9 @@ export default function GameOverview() {
 
       <div
         style={{
-          background: "#d37b5a", 
+          background: "#ff8c42", 
           borderRadius: "30px", 
-          border: "2px solid #e89b7d",
+          border: "2px solid #ff9e5e",
           padding: "2rem",
           marginBottom: "4rem",
           display: "flex",
@@ -311,12 +330,22 @@ export default function GameOverview() {
                         alignItems: 'center',
                         justifyContent: 'space-between',
                         padding: '0.8rem 1rem',
-                        background: 'rgba(211, 123, 90, 0.6)',
+                        background: 'rgba(255, 140, 66, 0.6)',
                         borderRadius: '12px',
                         textDecoration: 'none',
                         color: 'white',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
-                        transition: 'transform 0.2s',
+                        transition: 'all 0.2s',
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.background = '#ffffff';
+                        e.currentTarget.style.color = '#ff8c42';
+                        e.currentTarget.style.border = '1px solid #ff8c42';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.background = 'rgba(255, 140, 66, 0.6)';
+                        e.currentTarget.style.color = 'white';
+                        e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
                       }}
                     >
                       <span style={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'left' }}>
@@ -343,19 +372,33 @@ export default function GameOverview() {
         </div>
       </div>
 
-      <section style={{ marginBottom: '4rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+      <section style={{ marginBottom: '4rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 4rem auto' }}>
+        <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
           Scoring System
         </h2>
-        <ul style={{ color: '#ccc', lineHeight: '2', listStyle: 'none', padding: 0 }}>
-          <li>Autonomous Bonus: 10 points</li>
-          <li>Each Block Scored: 3 points</li>
-          <li>Each Controlled Zone in a Long Goal: 10 points</li>
-          <li>Controlled Center Goal (Upper): 8 points</li>
-          <li>Controlled Center Goal (Lower): 6 points</li>
-          <li>1 Parked Alliance Robot: 8 points</li>
-          <li>2 Parked Alliance Robots: 30 points</li>
-        </ul>
+        <div style={{ 
+          overflow: 'hidden', 
+          background: 'rgba(255, 140, 66, 0.1)', 
+          borderRadius: '16px', 
+          border: '1px solid rgba(255, 255, 255, 0.1)' 
+        }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ background: 'rgba(255, 140, 66, 0.3)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
+                <th style={{ padding: '1rem', fontWeight: 'bold' }}>Scoring Item</th>
+                <th style={{ padding: '1rem', fontWeight: 'bold', textAlign: 'right' }}>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {scoringData.map((row, index) => (
+                <tr key={index} style={{ borderBottom: index !== scoringData.length - 1 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none' }}>
+                  <td style={{ padding: '0.8rem 1rem', color: '#ccc' }}>{row.item}</td>
+                  <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold' }}>{row.points}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -380,19 +423,23 @@ export default function GameOverview() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '1.5rem 2rem',
-                background: 'rgba(211, 123, 90, 0.4)',
+                background: 'rgba(255, 140, 66, 0.4)',
                 borderRadius: '16px',
                 textDecoration: 'none',
                 color: 'white',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                transition: 'transform 0.2s, background 0.2s',
+                transition: 'all 0.2s',
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.background = 'rgba(211, 123, 90, 0.6)';
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.color = '#ff8c42';
+                e.currentTarget.style.border = '1px solid #ff8c42';
                 e.currentTarget.style.transform = 'translateY(-2px)';
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.background = 'rgba(211, 123, 90, 0.4)';
+                e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)';
+                e.currentTarget.style.color = 'white';
+                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
