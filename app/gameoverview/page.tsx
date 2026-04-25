@@ -14,7 +14,7 @@ type FieldObject = {
   y: string;   // Percentage from top
   w: string;   // Width of hitbox
   h: string;   // Height of hitbox
-  links: { title: string; url: string }[]; // Array to support multiple links
+  links: { title: string; url: string }[]; 
 };
 
 export default function GameOverview() {
@@ -114,7 +114,7 @@ export default function GameOverview() {
     {
       id: "blocks1",
       title: "Blocks",
-      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points. Choosing when to score and how many to score can quickly shift the score in an alliance’s favor.",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "22.6%", y: "66%", w: "40px", h: "40px",
       links: [
         { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
@@ -124,7 +124,7 @@ export default function GameOverview() {
     {
       id: "blocks2",
       title: "Blocks",
-      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points. Choosing when to score and how many to score can quickly shift the score in an alliance’s favor.",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "22.6%", y: "34%", w: "40px", h: "40px",
       links: [
         { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
@@ -134,7 +134,7 @@ export default function GameOverview() {
     {
       id: "blocks3",
       title: "Blocks",
-      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points. Choosing when to score and how many to score can quickly shift the score in an alliance’s favor.",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "40.6%", y: "66%", w: "40px", h: "40px",
       links: [
         { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
@@ -144,7 +144,7 @@ export default function GameOverview() {
     {
       id: "blocks4",
       title: "Blocks",
-      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points. Choosing when to score and how many to score can quickly shift the score in an alliance’s favor.",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "40.6%", y: "34%", w: "40px", h: "40px",
       links: [
         { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
@@ -168,8 +168,32 @@ export default function GameOverview() {
     { item: "2 Parked Alliance Robots", points: "30 points" }
   ];
 
-  return (
+  const keyRules = [
+    { rule: "G1: Respect and Civility", desc: "Teams must display sportsmanship. Extreme violations may result in DQs." },
+    { rule: "SG2: Horizontal Expansion", desc: "Robots may not exceed a horizontal dimension of 36 inches at any point." },
+    { rule: "SG3: Vertical Expansion", desc: "Robots may only expand vertically when in contact with a scoring zone." },
+    { rule: "SG4: Possession Limit", desc: "Robots are limited to holding a maximum of 3 blocks simultaneously." }
+  ];
 
+  const largerSubheadingStyle = {
+    fontSize: '1.5rem',
+    marginBottom: '1rem',
+    fontWeight: 'bold',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '1px',
+    color: '#e67300' 
+  };
+
+  const smallerSubheadingStyle = {
+    fontSize: '1.1rem',
+    color: 'white',
+    marginBottom: '0.5rem',
+    fontWeight: '500', 
+    textTransform: 'uppercase' as const,
+    fontStyle: 'italic'
+  };
+
+  return (
     <main
       className={rubik.className}
       style={{
@@ -180,13 +204,10 @@ export default function GameOverview() {
         margin: '0 auto',
       }}
     >
+      <img src="/wheel.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
+      <img src="/gear.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
 
-      {/* SPINNING OMNI-WHEEL + GEAR */}
-
-    <img src="/wheel.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
-    <img src="/gear.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
-
-    <Rain />
+      <Rain />
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
@@ -195,9 +216,22 @@ export default function GameOverview() {
         <p style={{ color: '#aaa', fontSize: '1.1rem', fontStyle: 'italic' }}>
           Breaking down the 2025–2026 VEX V5 game, <strong>Push Back</strong>!
         </p>
+
+        {/* REVEAL VIDEO EMBED */}
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+          <iframe 
+            width="800" 
+            height="450" 
+            src="https://www.youtube.com/embed/ocmONiVun9M" 
+            title="V5RC Push Back Game Reveal"
+            style={{ borderRadius: '20px', border: '3px solid #e67300', maxWidth: '100%' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+          />
+        </div>
       </section>
 
-      <section style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+      <section style={{ marginBottom: '2.5rem', textAlign: 'center', marginTop: '3rem' }}>
         <h2 style={{ fontSize: '1.8rem', marginBottom: '0.75rem', fontWeight: 'bold' }}>
           Alliance Overview
         </h2>
@@ -208,6 +242,7 @@ export default function GameOverview() {
         </p>
       </section>
 
+      {/* INTERACTIVE FIELD MAP */}
       <div
         style={{
           background: "#ff8c42", 
@@ -278,13 +313,7 @@ export default function GameOverview() {
               textAlign: "center"
             }}
           >
-            <h2 style={{ 
-              fontSize: "1.2rem", 
-              fontWeight: "bold", 
-              marginBottom: "1rem", 
-              textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
-              textTransform: "uppercase" 
-            }}>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: "bold", marginBottom: "1rem", textTransform: "uppercase" }}>
               {selected?.title || "SELECT A ZONE"}
             </h2>
             
@@ -293,78 +322,30 @@ export default function GameOverview() {
                 <div style={{
                   border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRadius: "12px",
-                  padding: "1rem 2.2rem 1rem 1rem", 
+                  padding: "1rem", 
                   background: "rgba(0, 0, 0, 0.05)",
                   position: "relative",
                   marginBottom: "0.5rem"
                 }}>
-                  <div style={{ 
-                    position: "absolute", 
-                    top: "10px", 
-                    right: "10px", 
-                    opacity: 0.8 
-                  }}>
+                  <div style={{ position: "absolute", top: "10px", right: "10px", opacity: 0.8 }}>
                     <Info size={18} strokeWidth={2.5} />
                   </div>
-                  <p style={{ 
-                    fontSize: "0.9rem", 
-                    color: "rgba(255, 255, 255, 0.85)", 
-                    lineHeight: "1.5", 
-                    fontWeight: "500",
-                    whiteSpace: "pre-wrap",
-                    textAlign: "left"
-                  }}>
+                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left" }}>
                     {selected.description}
                   </p>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {selected.links.map((link, i) => (
-                    <a
-                      key={i}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '0.8rem 1rem',
-                        background: 'rgba(255, 140, 66, 0.6)',
-                        borderRadius: '12px',
-                        textDecoration: 'none',
-                        color: 'white',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        transition: 'all 0.2s',
-                      }}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.background = '#ffffff';
-                        e.currentTarget.style.color = '#ff8c42';
-                        e.currentTarget.style.border = '1px solid #ff8c42';
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.background = 'rgba(255, 140, 66, 0.6)';
-                        e.currentTarget.style.color = 'white';
-                        e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-                      }}
-                    >
-                      <span style={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'left' }}>
-                        {link.title}
-                      </span>
+                    <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.8rem 1rem', background: 'rgba(255, 140, 66, 0.6)', borderRadius: '12px', textDecoration: 'none', color: 'white', border: '1px solid rgba(255, 255, 255, 0.2)', transition: 'all 0.2s' }}>
+                      <span style={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'left' }}>{link.title}</span>
                       <ExternalLink size={14} opacity={0.7} />
                     </a>
                   ))}
                 </div>
               </div>
             ) : (
-              <p style={{ 
-                fontSize: "0.9rem", 
-                color: "rgba(255, 255, 255, 0.7)", 
-                lineHeight: "1.5", 
-                fontWeight: "500",
-                fontStyle: "italic",
-                textAlign: "left"
-              }}>
+              <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.7)", fontStyle: "italic", textAlign: "left" }}>
                 Click on any highlighted zone on the field map to see scoring details and objectives.
               </p>
             )}
@@ -372,19 +353,13 @@ export default function GameOverview() {
         </div>
       </div>
 
-      <section style={{ marginBottom: '4rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 4rem auto' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
-          Scoring System
-        </h2>
-        <div style={{ 
-          overflow: 'hidden', 
-          background: 'rgba(255, 140, 66, 0.1)', 
-          borderRadius: '16px', 
-          border: '1px solid rgba(255, 255, 255, 0.1)' 
-        }}>
+      <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto' }}>
+        {/* SCORING SYSTEM */}
+        <h2 style={largerSubheadingStyle}>Scoring System</h2>
+        <div style={{ overflow: 'hidden', background: 'rgba(255, 140, 66, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
             <thead>
-              <tr style={{ background: 'rgba(255, 140, 66, 0.3)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
+              <tr style={{ background: 'rgb(255, 138, 66)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
                 <th style={{ padding: '1rem', fontWeight: 'bold' }}>Scoring Item</th>
                 <th style={{ padding: '1rem', fontWeight: 'bold', textAlign: 'right' }}>Points</th>
               </tr>
@@ -399,50 +374,67 @@ export default function GameOverview() {
             </tbody>
           </table>
         </div>
+
+        {/* TIMELINE PARAGRAPHS */}
+        <div style={{ textAlign: 'left' }}>
+          <h2 style={largerSubheadingStyle}>Alliance Match Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
+            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend the first minute &quot;starving&quot; the field of blocks by hoarding them, before spending the final 45 seconds aggressively vying for control of the Center and Long Goals.
+          </p>
+
+          <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
+            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized &quot;route.&quot; The most successful runs involve clearing the Loader quickly and focusing on the high-value Upper Center Goal in the first 40 seconds, leaving the final 20 seconds for a guaranteed double-park or filling the Long Goals.
+          </p>
+
+          <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
+            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline into segments: the first 20 seconds are dedicated to reliable block intake and positioning, the middle 30 seconds to precision scoring in Controlled Zones, and the final 10 seconds to navigation towards the Parking Zone to maximize end-game multipliers.
+          </p>
+        </div>
+
+        {/* KEY RULES TABLE (MOVED HERE) */}
+        <h2 style={largerSubheadingStyle}>Key Game Rules</h2>
+        <div style={{ overflow: 'hidden', background: 'rgba(230, 115, 0, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ background: 'rgb(230, 115, 0)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
+                <th style={{ padding: '1rem', fontWeight: 'bold' }}>Rule #</th>
+                <th style={{ padding: '1rem', fontWeight: 'bold' }}>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {keyRules.map((row, index) => (
+                <tr key={index} style={{ borderBottom: index !== keyRules.length - 1 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none' }}>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: 'bold', color: 'white' }}>{row.rule}</td>
+                  <td style={{ padding: '0.8rem 1rem', color: 'white' }}>{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* ALLIANCE GAMEPLAY SECTION */}
+        <div style={{ marginTop: '2.5rem', textAlign: 'left' }}>
+          <h2 style={largerSubheadingStyle}>Alliance Gameplay</h2>
+          <h3 style={smallerSubheadingStyle}>Alliance Explanation</h3>
+          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
+            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient communication, role specialization, and dominating key field elements like the Center and Long Goals.
+          </p>
+          <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
+          <ul style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', paddingLeft: '1.5rem' }}>
+            <li><strong>Driver:</strong> Responsible for the primary manual operation and precision movement.</li>
+            <li><strong>Loader:</strong> Introduces alliance-colored blocks into the field via the Loader mechanisms.</li>
+            <li><strong>Strategist:</strong> Maintains a high-level view and communicates with the alliance partner.</li>
+          </ul>
+        </div>
       </section>
 
       <section style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h2 style={{ 
-          fontSize: '1.5rem', 
-          fontWeight: 'bold', 
-          marginBottom: '1.5rem', 
-          textTransform: 'uppercase',
-          letterSpacing: '1px'
-        }}>
-          Useful Links
-        </h2>
+        <h2 style={largerSubheadingStyle}>Useful Links</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {generalLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '1.5rem 2rem',
-                background: 'rgba(255, 140, 66, 0.4)',
-                borderRadius: '16px',
-                textDecoration: 'none',
-                color: 'white',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                transition: 'all 0.2s',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.background = '#ffffff';
-                e.currentTarget.style.color = '#ff8c42';
-                e.currentTarget.style.border = '1px solid #ff8c42';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)';
-                e.currentTarget.style.color = 'white';
-                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
+            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem 2rem', background: 'rgba(255, 140, 66, 0.4)', borderRadius: '16px', textDecoration: 'none', color: 'white', border: '1px solid rgba(255, 255, 255, 0.1)', transition: 'all 0.2s' }} onMouseOver={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#ff8c42'; e.currentTarget.style.border = '1px solid #ff8c42'; e.currentTarget.style.transform = 'translateY(-2px)'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
               <span style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{link.title}</span>
               <ExternalLink size={20} opacity={0.7} />
             </a>
