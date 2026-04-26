@@ -2,7 +2,7 @@
 import { Rubik } from "next/font/google";
 import { useState } from "react";
 import Rain from '../components/rain';
-import { Info, ExternalLink, Home, Lightbulb } from "lucide-react";
+import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
@@ -199,10 +199,10 @@ export default function GameOverview() {
     alignItems: 'center',
     gap: '0.75rem',
     padding: '1rem 2rem',
-    background: 'transparent',
-    color: '#ff8c00',
-    border: '2px solid #ff8c00',
-    borderRadius: '12px',
+    background: '#ff8c00', 
+    color: 'white',        
+    border: '2px solid #ff8c00', 
+    borderRadius: '16px',
     fontWeight: 'bold',
     fontSize: '1.1rem',
     textDecoration: 'none',
@@ -346,7 +346,10 @@ export default function GameOverview() {
                   marginBottom: "0.5rem"
                 }}>
                   <div style={{ position: "absolute", top: "10px", right: "10px", opacity: 0.8 }}>
-                    <Info size={18} strokeWidth={2.5} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '10px' }}></span>
+                      <Info size={18} strokeWidth={2.5} />
+                    </div>
                   </div>
                   <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left" }}>
                     {selected.description}
@@ -402,7 +405,7 @@ export default function GameOverview() {
 
           <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized &quot;route.&quot; The most successful runs involve clearing the Loader quickly and focusing on the high-value Upper Center Goal in the first 40 seconds, leaving the final 20 seconds for a guaranteed double-park or filling the Long Goals.
+            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized &quot;route&quot;. The most successful runs involve clearing the Loader quickly and focusing on the high-value Upper Center Goal in the first 40 seconds, leaving the final 20 seconds for a guaranteed double-park or filling the Long Goals.
           </p>
 
           <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
@@ -440,11 +443,29 @@ export default function GameOverview() {
             Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient communication, role specialization, and dominating key field elements like the Center and Long Goals.
           </p>
           <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
-          <ul style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', paddingLeft: '1.5rem' }}>
-            <li><strong>Driver:</strong> Responsible for the primary manual operation and precision movement.</li>
-            <li><strong>Loader:</strong> Introduces alliance-colored blocks into the field via the Loader mechanisms.</li>
-            <li><strong>Strategist:</strong> Maintains a high-level view and communicates with the alliance partner.</li>
-          </ul>
+          <ul style={{ listStyle: 'none', paddingLeft: 0, color: '#ccc', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
+          <li style={{ marginBottom: '10px' }}>
+            • <strong style={{ color: '#ff7300' }}>Driver:</strong> Primary manual control and precision movement of the robot.
+          </li>
+          <li style={{ marginBottom: '10px' }}>
+           • <strong style={{ color: '#ff7300' }}>Loader:</strong> Introduces alliance-colored blocks into the field using loader mechanisms.
+          </li>
+          <li>
+          • <strong style={{ color: '#ff7300' }}>Strategist:</strong> Maintains a high-level view and communicates with the alliance partner.
+         </li>
+         </ul>
+
+          <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
+          <h2 style={smallerSubheadingStyle}>Driver Skills Explanation</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
+            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield zones like the Upper Center Goal and reliable end-game parking.
+          </p>
+
+          <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
+          <h2 style={smallerSubheadingStyle}>Autonomous Skills Explanation</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
+            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify blocks and navigate scoring zones independently.
+          </p>
         </div>
       </section>
 
@@ -469,30 +490,34 @@ export default function GameOverview() {
         }}>
           <Link href="/" style={navButtonStyle}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#ff8c00';
-              e.currentTarget.style.color = 'white';
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#ff8c00';
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
             }}
           >
-            <Home size={20} />
-            Back to Homepage
+            
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          <ChevronLeft size={25} />
+          <span> Back to Homepage</span>
+          </div>
           </Link>
 
           <Link href="/brainstorming" style={navButtonStyle}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#ff8c00';
-              e.currentTarget.style.color = 'white';
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#ff8c00';
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
             }}
           >
-            <Lightbulb size={20} />
-            Brainstorming
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              Next Page <ChevronRight size={25} />
+            </div>
           </Link>
         </div>
       </section>
