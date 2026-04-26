@@ -5,28 +5,47 @@
   --foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* --- SCROLLBAR WITH ORANGE BACKGROUND --- */
+
+/* 1. Set the width of the scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
 }
 
+/* 2. The Track (The background of the scrollbar) - SET TO ORANGE */
+::-webkit-scrollbar-track {
+  background: #ff8c00 !important; /* This is the "Orange" you requested */
+}
+
+/* 3. The Thumb (The moving part) - KEEPING WHITE */
+::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border-radius: 10px;
+  /* Adding a small orange border creates a "padding" look */
+  border: 2px solid #ff8c00; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f0f0f0 !important;
+}
+
+/* 4. Firefox support (Thumb color, Track color) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #ff8a428e !important;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 .spin {
   display: inline-block;
   animation: spin 20s linear infinite;

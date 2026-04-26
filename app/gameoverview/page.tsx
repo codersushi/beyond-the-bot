@@ -2,7 +2,8 @@
 import { Rubik } from "next/font/google";
 import { useState } from "react";
 import Rain from '../components/rain';
-import { Info, ExternalLink } from "lucide-react";
+import { Info, ExternalLink, Home, Lightbulb } from "lucide-react";
+import Link from "next/link";
 
 const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
 
@@ -193,6 +194,22 @@ export default function GameOverview() {
     fontStyle: 'italic'
   };
 
+  const navButtonStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.75rem',
+    padding: '1rem 2rem',
+    background: 'transparent',
+    color: '#ff8c00',
+    border: '2px solid #ff8c00',
+    borderRadius: '12px',
+    fontWeight: 'bold',
+    fontSize: '1.1rem',
+    textDecoration: 'none',
+    transition: 'all 0.3s ease',
+    cursor: 'pointer'
+  };
+
   return (
     <main
       className={rubik.className}
@@ -204,6 +221,7 @@ export default function GameOverview() {
         margin: '0 auto',
       }}
     >
+
       <img src="/wheel.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
       <img src="/gear.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
 
@@ -393,7 +411,7 @@ export default function GameOverview() {
           </p>
         </div>
 
-        {/* KEY RULES TABLE (MOVED HERE) */}
+        {/* KEY RULES TABLE */}
         <h2 style={largerSubheadingStyle}>Key Game Rules</h2>
         <div style={{ overflow: 'hidden', background: 'rgba(230, 115, 0, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
@@ -439,6 +457,43 @@ export default function GameOverview() {
               <ExternalLink size={20} opacity={0.7} />
             </a>
           ))}
+        </div>
+
+        {/* BOTTOM NAVIGATION BUTTONS */}
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '2rem', 
+          marginTop: '4rem',
+          paddingBottom: '4rem' 
+        }}>
+          <Link href="/" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#ff8c00';
+              e.currentTarget.style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = '#ff8c00';
+            }}
+          >
+            <Home size={20} />
+            Back to Homepage
+          </Link>
+
+          <Link href="/brainstorming" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#ff8c00';
+              e.currentTarget.style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = '#ff8c00';
+            }}
+          >
+            <Lightbulb size={20} />
+            Brainstorming
+          </Link>
         </div>
       </section>
     </main>
