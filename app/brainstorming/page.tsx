@@ -1,34 +1,513 @@
-// app/brainstorming/page.tsx
-
-'use client'; // Include this if you use hooks like useState
-
+'use client';
 import { Rubik } from "next/font/google";
+import { useState } from "react";
+import Rain from '../components/rain';
+import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { Home } from "lucide-react";
 
-const rubik = Rubik({ subsets: ['latin'] });
+const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
 
-export default function BrainstormingPage() {
+type FieldObject = {
+  id: string; 
+  title: string; 
+  description: string; 
+  x: string;   // Percentage from left
+  y: string;   // Percentage from top
+  w: string;   // Width of hitbox
+  h: string;   // Height of hitbox
+  links: { title: string; url: string }[]; 
+};
+
+export default function GameOverview() {
+  const [selected, setSelected] = useState<FieldObject | null>(null);
+
+  const objects: FieldObject[] = [
+    {
+      id: "center-goal",
+      title: "Center Goal",
+      description: "The center goals are field elements located in the middle of the field, consisting of an upper center goal and a lower center goal. Robots can score red and blue blocks into either goal, and a team controls a goal by having more of their alliance colored blocks inside it. Controlling a goal awards an 8-point bonus, which can often swing a match’s score.",
+      x: "31.6%", y: "50%", w: "120px", h: "120px",
+      links: [
+        { title: "Center Goal Rules Q&A: 2782", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2782" },
+        { title: "Center Goal Rules Q&A: 2737", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2737" }
+      ]
+    },
+    {
+      id: "long-goal-left",
+      title: "Long Goal (Left)",
+      description: "The long goal is a field element where robots can score red and blue blocks during the match. It provides a consistent scoring location for quickly placing hoarded blocks for points. A control zone located between both long goals can hold up to four blocks. A team gains control by having more of their alliance colored blocks inside it, earning a 10-point bonus.",
+      x: "31.6%", y: "18%", w: "220px", h: "50px",
+      links: [
+        { title: "Long Goal Rules Q&A: 3115", url: "https://www.robotevents.com/V5RC/2025-2026/QA/3115" },
+        { title: "Long Goal Rules Q&A: 2789", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2789" }
+      ]
+    },
+    {
+      id: "long-goal-right",
+      title: "Long Goal (Right)",
+      description: "The long goal is a field element where robots can score red and blue blocks during the match. It provides a consistent scoring location for quickly placing hoarded blocks for points. A control zone located between both long goals can hold up to four blocks. A team gains control by having more of their alliance colored blocks inside it, earning a 10-point bonus.",
+      x: "31.6%", y: "82%", w: "220px", h: "50px",
+      links: [
+        { title: "Long Goal Rules Q&A: 3115", url: "https://www.robotevents.com/V5RC/2025-2026/QA/3115" },
+        { title: "Long Goal Rules Q&A: 2789", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2789" }
+      ]
+    },
+    {
+      id: "blue-park-zone",
+      title: "Blue Park Zone",
+      description: "This is a Blue Alliance Parking Zone.\n\nThe parking zone is a designated area on the field where robots must be fully or partially inside of at the end of the match for points. Parking one robot earns 8 points, while parking two robots earns 30 points.",
+      x: "54.7%", y: "50.2%", w: "80px", h: "80px",
+      links: [
+        { title: "Parking Rules Q&A: 3000", url: "https://www.robotevents.com/it/V5RC/2025-2026/QA/3000" },
+        { title: "Parking Rules Q&A: 2772", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2772" }
+      ]
+    },
+    {
+      id: "red-park-zone",
+      title: "Red Park Zone",
+      description: "This is a Red Alliance Parking Zone.\n\nThe parking zone is a designated area on the field where robots must be fully or partially inside of at the end of the match for points. Parking one robot earns 8 points, while parking two robots earns 30 points.",
+      x: "8.6%", y: "50.2%", w: "80px", h: "80px",
+      links: [
+        { title: "Parking Rules Q&A: 3000", url: "https://www.robotevents.com/it/V5RC/2025-2026/QA/3000" },
+        { title: "Parking Rules Q&A: 2772", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2772" }
+      ]
+    },
+    {
+      id: "loader1",
+      title: "Loader",
+      description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
+      x: "5.5%", y: "82%", w: "30px", h: "30px",
+      links: [
+        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
+        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
+      ]
+    },
+    {
+      id: "loader2",
+      title: "Loader",
+      description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
+      x: "5.5%", y: "18%", w: "30px", h: "30px",
+      links: [
+        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
+        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
+      ]
+    },
+    {
+      id: "loader3",
+      title: "Loader",
+      description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
+      x: "57.6%", y: "18%", w: "30px", h: "30px",
+      links: [
+        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
+        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
+      ]
+    },
+    {
+      id: "loader4",
+      title: "Loader",
+      description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
+      x: "57.6%", y: "82%", w: "30px", h: "30px",
+      links: [
+        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
+        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
+      ]
+    },
+    {
+      id: "blocks1",
+      title: "Blocks",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
+      x: "22.6%", y: "66%", w: "40px", h: "40px",
+      links: [
+        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
+        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
+      ]
+    },
+    {
+      id: "blocks2",
+      title: "Blocks",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
+      x: "22.6%", y: "34%", w: "40px", h: "40px",
+      links: [
+        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
+        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
+      ]
+    },
+    {
+      id: "blocks3",
+      title: "Blocks",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
+      x: "40.6%", y: "66%", w: "40px", h: "40px",
+      links: [
+        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
+        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
+      ]
+    },
+    {
+      id: "blocks4",
+      title: "Blocks",
+      description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
+      x: "40.6%", y: "34%", w: "40px", h: "40px",
+      links: [
+        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
+        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
+      ]
+    }
+  ];
+
+  const generalLinks = [
+    { title: "VEX V5 Game Manual", url: "https://www.vexrobotics.com/push-back-manual?srsltid=AfmBOopYWEGAgtVb5QmFB10j9U7lTJrwfUl5YXwo7-dubIiT1OiQqyxb" },
+    { title: "VRC Safety Standards", url: "https://v5rc-kb.recf.org/hc/en-us/articles/9654207108503-Safety-Procedures-at-VEX-V5-Robotics-Competition-Events/" }
+  ];
+
+  const scoringData = [
+    { item: "Autonomous Bonus", points: "10 points" },
+    { item: "Each Block Scored", points: "3 points" },
+    { item: "Each Controlled Zone in a Long Goal", points: "10 points" },
+    { item: "Controlled Center Goal (Upper)", points: "8 points" },
+    { item: "Controlled Center Goal (Lower)", points: "6 points" },
+    { item: "1 Parked Alliance Robot", points: "8 points" },
+    { item: "2 Parked Alliance Robots", points: "30 points" }
+  ];
+
+  const keyRules = [
+    { rule: "G1: Respect and Civility", desc: "Teams must display sportsmanship. Extreme violations may result in DQs." },
+    { rule: "SG2: Horizontal Expansion", desc: "Robots may not exceed a horizontal dimension of 36 inches at any point." },
+    { rule: "SG3: Vertical Expansion", desc: "Robots may only expand vertically when in contact with a scoring zone." },
+    { rule: "SG4: Possession Limit", desc: "Robots are limited to holding a maximum of 3 blocks simultaneously." }
+  ];
+
+  const largerSubheadingStyle = {
+    fontSize: '1.5rem',
+    marginBottom: '1rem',
+    fontWeight: 'bold',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '1px',
+    color: '#e67300' 
+  };
+
+  const smallerSubheadingStyle = {
+    fontSize: '1.1rem',
+    color: 'white',
+    marginBottom: '0.5rem',
+    fontWeight: '500', 
+    textTransform: 'uppercase' as const,
+    fontStyle: 'italic'
+  };
+
+  const navButtonStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.75rem',
+    padding: '1rem 2rem',
+    background: '#ff8c00', 
+    color: 'white',        
+    border: '2px solid #ff8c00', 
+    borderRadius: '16px',
+    fontWeight: 'bold',
+    fontSize: '1.1rem',
+    textDecoration: 'none',
+    transition: 'all 0.3s ease',
+    cursor: 'pointer'
+  };
+
   return (
-    
-    <main className={rubik.className} style={{ padding: '2rem', color: 'white' }}>
-      <h1>Brainstorming</h1>
-      <p>Content goes here...</p>
+    <main
+      className={rubik.className}
+      style={{
+        minHeight: '100vh',
+        color: 'white',
+        padding: '2rem 1.5rem',
+        maxWidth: '1900px', 
+        margin: '0 auto',
+      }}
+    >
 
-      {/* Button to go back */}
-      <Link href="/" style={{ 
-        marginTop: '2rem', 
-        display: 'inline-flex', 
-        gap: '10px', 
-        color: '#ff8c00', 
-        border: '1px solid #ff8c00', 
-        padding: '10px 20px', 
-        borderRadius: '8px',
-        textDecoration: 'none'
-      }}>
-        <Home size={20} />
-        Back to Analysis
-      </Link>
+      <img src="/wheel.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
+      <img src="/gear.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
+
+      <Rain />
+        
+      <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+          BRAINSTORMING
+        </h2>
+        <p style={{ color: '#aaa', fontSize: '1.1rem', fontStyle: 'italic' }}>
+          “Now, how does someone start building a robot, let alone <strong>designing</strong> one?”
+        </p>
+      </section>
+
+      <section style={{ marginBottom: '2.5rem', textAlign: 'center', marginTop: '2rem' }}>
+        <h2 style={{ fontSize: '1.8rem', marginBottom: '0.75rem', fontWeight: 'bold' }}>
+          Alliance Overview
+        </h2>
+        <p style={{ lineHeight: '1.7', color: '#ccc', maxWidth: '850px', margin: '0 auto' }}>
+          Push Back is a VEX V5 Robotics Competition game where two alliances, each made up of two robots, 
+          compete on a shared field to earn points through strategic movement, object manipulation, 
+          and field control.
+        </p>
+      </section>
+
+      {/* INTERACTIVE FIELD MAP */}
+      <div
+        style={{
+          background: "#ff8c42", 
+          borderRadius: "30px", 
+          border: "2px solid #ff9e5e",
+          padding: "2rem",
+          marginBottom: "4rem",
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "stretch", 
+          overflow: "hidden" 
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "stretch", width: "fit-content" }}>
+          <div style={{ position: "relative", width: "fit-content" }}>
+            <img
+              src="/field.png"
+              alt="VEX V5 Field"
+              style={{
+                display: "block",
+                width: "1200px",      
+                height: "auto",
+                objectFit: "contain",
+                clipPath: "inset(0% 12% 0% 12%)", 
+                marginLeft: "-180px" 
+              }}
+            />
+
+            {objects.map((obj) => (
+              <div
+                key={obj.id}
+                onClick={() => setSelected(obj)}
+                style={{
+                  position: "absolute",
+                  left: obj.x,
+                  top: obj.y,
+                  width: obj.w,
+                  height: obj.h,
+                  cursor: "pointer",
+                  background: selected?.id === obj.id ? "rgba(255, 255, 255, 0.3)" : "rgba(251, 255, 0, 0.52)",
+                  border: selected?.id === obj.id ? "3px solid #ffffff" : "2px dashed rgba(255, 255, 255, 0.4)",
+                  transform: "translate(-50%, -50%)",
+                  borderRadius: obj.id === "center-goal" ? "20%" : "12px",
+                  transition: "all 0.2s ease-in-out",
+                  zIndex: 10
+                }}
+              />
+            ))}
+          </div>
+
+          <div
+            style={{
+              width: "350px", 
+              padding: "2.5rem 1.5rem",
+              background: "#ff8c42", 
+              color: "#ffffff", 
+              borderRadius: "20px",
+              flexShrink: 0,
+              alignSelf: "stretch", 
+              margin: "9px 0 9px -390px", 
+              position: "relative",
+              zIndex: 20,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+              border: "1px solid rgba(255,255,255,0.3)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              textAlign: "center"
+            }}
+          >
+            <h2 style={{ fontSize: "1.2rem", fontWeight: "bold", marginBottom: "1rem", textTransform: "uppercase" }}>
+              {selected?.title || "SELECT A ZONE"}
+            </h2>
+            
+            {selected ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  borderRadius: "12px",
+                  padding: "1rem", 
+                  background: "rgba(0, 0, 0, 0.05)",
+                  position: "relative",
+                  marginBottom: "0.5rem"
+                }}>
+                  <div style={{ position: "absolute", top: "10px", right: "10px", opacity: 0.8 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '10px' }}></span>
+                      <Info size={18} strokeWidth={2.5} />
+                    </div>
+                  </div>
+                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left" }}>
+                    {selected.description}
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {selected.links.map((link, i) => (
+                    <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.8rem 1rem', background: 'rgba(255, 140, 66, 0.6)', borderRadius: '12px', textDecoration: 'none', color: 'white', border: '1px solid rgba(255, 255, 255, 0.2)', transition: 'all 0.2s' }}>
+                      <span style={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'left' }}>{link.title}</span>
+                      <ExternalLink size={14} opacity={0.7} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.7)", fontStyle: "italic", textAlign: "left" }}>
+                Click on any highlighted zone on the field map to see scoring details and objectives.
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto' }}>
+        {/* SCORING SYSTEM */}
+        <h2 style={largerSubheadingStyle}>Scoring System</h2>
+        <div style={{ overflow: 'hidden', background: 'rgba(255, 140, 66, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ background: 'rgb(255, 138, 66)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
+                <th style={{ padding: '1rem', fontWeight: 'bold' }}>Scoring Item</th>
+                <th style={{ padding: '1rem', fontWeight: 'bold', textAlign: 'right' }}>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {scoringData.map((row, index) => (
+                <tr key={index} style={{ borderBottom: index !== scoringData.length - 1 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none' }}>
+                  <td style={{ padding: '0.8rem 1rem', color: '#ccc' }}>{row.item}</td>
+                  <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold' }}>{row.points}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* TIMELINE PARAGRAPHS */}
+        <div style={{ textAlign: 'left' }}>
+          <h2 style={largerSubheadingStyle}>Alliance Match Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
+            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend the first minute &quot;starving&quot; the field of blocks by hoarding them, before spending the final 45 seconds aggressively vying for control of the Center and Long Goals.
+          </p>
+
+          <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
+            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized &quot;route&quot;. The most successful runs involve clearing the Loader quickly and focusing on the high-value Upper Center Goal in the first 40 seconds, leaving the final 20 seconds for a guaranteed double-park or filling the Long Goals.
+          </p>
+
+          <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
+            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline into segments: the first 20 seconds are dedicated to reliable block intake and positioning, the middle 30 seconds to precision scoring in Controlled Zones, and the final 10 seconds to navigation towards the Parking Zone to maximize end-game multipliers.
+          </p>
+        </div>
+
+        {/* KEY RULES TABLE */}
+        <h2 style={largerSubheadingStyle}>Key Game Rules</h2>
+        <div style={{ overflow: 'hidden', background: 'rgba(230, 115, 0, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ background: 'rgb(230, 115, 0)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
+                <th style={{ padding: '1rem', fontWeight: 'bold' }}>Rule #</th>
+                <th style={{ padding: '1rem', fontWeight: 'bold' }}>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {keyRules.map((row, index) => (
+                <tr key={index} style={{ borderBottom: index !== keyRules.length - 1 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none' }}>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: 'bold', color: 'white' }}>{row.rule}</td>
+                  <td style={{ padding: '0.8rem 1rem', color: 'white' }}>{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* ALLIANCE GAMEPLAY SECTION */}
+        <div style={{ marginTop: '2.5rem', textAlign: 'left' }}>
+          <h2 style={largerSubheadingStyle}>Alliance Gameplay</h2>
+          <h3 style={smallerSubheadingStyle}>Alliance Explanation</h3>
+          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
+            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient communication, role specialization, and dominating key field elements like the Center and Long Goals.
+          </p>
+          <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
+          <ul style={{ listStyle: 'none', paddingLeft: 0, color: '#ccc', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
+          <li style={{ marginBottom: '10px' }}>
+            • <strong style={{ color: '#ff7300' }}>Driver:</strong> Primary manual control and precision movement of the robot.
+          </li>
+          <li style={{ marginBottom: '10px' }}>
+           • <strong style={{ color: '#ff7300' }}>Loader:</strong> Introduces alliance-colored blocks into the field using loader mechanisms.
+          </li>
+          <li>
+          • <strong style={{ color: '#ff7300' }}>Strategist:</strong> Maintains a high-level view and communicates with the alliance partner.
+         </li>
+         </ul>
+
+          <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
+          <h2 style={smallerSubheadingStyle}>Driver Skills Explanation</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
+            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield zones like the Upper Center Goal and reliable end-game parking.
+          </p>
+
+          <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
+          <h2 style={smallerSubheadingStyle}>Autonomous Skills Explanation</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
+            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify blocks and navigate scoring zones independently.
+          </p>
+        </div>
+      </section>
+
+      <section style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <h2 style={largerSubheadingStyle}>Useful Links</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {generalLinks.map((link, index) => (
+            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem 2rem', background: 'rgba(255, 140, 66, 0.4)', borderRadius: '16px', textDecoration: 'none', color: 'white', border: '1px solid rgba(255, 255, 255, 0.1)', transition: 'all 0.2s' }} onMouseOver={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#ff8c42'; e.currentTarget.style.border = '1px solid #ff8c42'; e.currentTarget.style.transform = 'translateY(-2px)'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+              <span style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{link.title}</span>
+              <ExternalLink size={20} opacity={0.7} />
+            </a>
+          ))}
+        </div>
+
+        {/* BOTTOM NAVIGATION BUTTONS */}
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '2rem', 
+          marginTop: '4rem',
+          paddingBottom: '4rem' 
+        }}>
+          <Link href="/" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
+            }}
+          >
+            
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          <ChevronLeft size={25} />
+          <span> Back to Homepage</span>
+          </div>
+          </Link>
+
+          <Link href="/brainstorming" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              Next Page <ChevronRight size={25} />
+            </div>
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }

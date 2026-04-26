@@ -251,7 +251,7 @@ export default function GameOverview() {
 
       <section style={{ marginBottom: '2.5rem', textAlign: 'center', marginTop: '3rem' }}>
         <h2 style={{ fontSize: '1.8rem', marginBottom: '0.75rem', fontWeight: 'bold' }}>
-          Alliance Overview
+          ALLIANCE OVERVIEW
         </h2>
         <p style={{ lineHeight: '1.7', color: '#ccc', maxWidth: '850px', margin: '0 auto' }}>
           Push Back is a VEX V5 Robotics Competition game where two alliances, each made up of two robots, 
