@@ -505,7 +505,7 @@ export default function GameOverview() {
           </div>
           </Link>
 
-          <Link href="/brainstorming" style={navButtonStyle}
+          <Link href="/Herobot" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
               e.currentTarget.style.color = '#ff8c00';    
