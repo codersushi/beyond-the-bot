@@ -226,10 +226,10 @@ export default function GameOverview() {
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          STARTING WITH THE HEROBOT
+          Brainstorming
         </h2>
         <p style={{ color: '#aaa', fontSize: '1.1rem', fontStyle: 'italic' }}>
-          Time to start learning building principles through this year's Herobot, <strong>Dex</strong>!
+          Now how does one build a good robot, much less <strong>design</strong>! a good robot?
         </p>
       </section>
 
