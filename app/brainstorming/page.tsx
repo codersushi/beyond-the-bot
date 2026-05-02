@@ -5,9 +5,9 @@ import Rain from '../components/rain';
 import { ChevronRight, ChevronLeft, Settings, X } from "lucide-react";
 import Link from "next/link";
 
-const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
+const rubik = Rubik({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
-export default function GameOverview() {
+export default function BrainstormingOverview() {
   const [showSettings, setShowSettings] = useState(false);
   const [visionMode, setVisionMode] = useState('normal');
 
@@ -41,16 +41,37 @@ export default function GameOverview() {
       position: 'relative',
       width: '100%',
       minHeight: '100vh',
-      backgroundColor: '#0a0a0a', // Solid base to prevent flickering
+      backgroundColor: '#0a0a0a',
       overflowX: 'hidden'
     }}>
-      {/* This layer handles the vision modes. 
-        Applying it here keeps the Rain and Content synced 
-        without breaking the global layout or scrollbars.
-      */}
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.98); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .settings-fade-in {
+          animation: fadeIn 0.2s ease-out forwards;
+        }
+        /* Fix: Backdrop filter requires a background color to be visible */
+        .glass-blur-overlay {
+          backdrop-filter: blur(12px) saturate(150%);
+          -webkit-backdrop-filter: blur(12px) saturate(150%);
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+        body { margin: 0; padding: 0; overflow-x: hidden; }
+      `}</style>
+
+      {/* RAIN LAYER: Stays consistent, not affected by vision filters */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
+        <Rain />
+      </div>
+
+      {/* CONTENT LAYER: Affected by color blindness settings */}
       <div style={{
+        position: 'relative',
+        zIndex: 2,
         filter: visionMode !== 'normal' ? (visionMode === 'achroma' ? 'grayscale(100%)' : `url(#${visionMode}-filter)`) : 'none',
-        transition: 'filter 0.3s ease',
+        WebkitFilter: visionMode !== 'normal' ? (visionMode === 'achroma' ? 'grayscale(100%)' : `url(#${visionMode}-filter)`) : 'none',
       }}>
         <main
           className={rubik.className}
@@ -60,27 +81,8 @@ export default function GameOverview() {
             padding: '2rem 1.5rem',
             maxWidth: '1900px', 
             margin: '0 auto',
-            position: 'relative',
           }}
         >
-          <style jsx global>{`
-            @keyframes fadeIn {
-              from { opacity: 0; transform: scale(0.98); }
-              to { opacity: 1; transform: scale(1); }
-            }
-            .settings-fade-in {
-              animation: fadeIn 0.2s ease-out forwards;
-            }
-            .glass-panel {
-              backdrop-filter: blur(16px) saturate(180%);
-              -webkit-backdrop-filter: blur(16px) saturate(180%);
-            }
-            /* Remove horizontal scroll issues */
-            body { margin: 0; overflow-x: hidden; width: 100%; }
-          `}</style>
-
-          <Rain />
-
           <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
             <filter id="protanopia-filter" colorInterpolationFilters="sRGB">
               <feColorMatrix values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"/>
@@ -123,6 +125,9 @@ export default function GameOverview() {
               </h2>
               <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '2rem' }}>
                 After evaluating the Herobot, our team moved into an intensive brainstorming phase. We focused on identifying the specific scoring needs for V5RC "Push Back," specifically targeting high-efficiency intakes and high-climb capabilities that Dex lacked.
+              </p>
+              <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '1rem' }}>
+                We explored various drivetrain configurations and intake mechanisms, prioritizing modularity. Our goal was to create a design that could be iterated upon without the total disassembly issues we encountered with the previous model.
               </p>
             </div>
           </section>
@@ -170,13 +175,13 @@ export default function GameOverview() {
         </main>
       </div>
 
-      {/* Settings Modal (Outside the filter div to keep blur and colors crisp) */}
+      {/* SETTINGS MODAL: Higher Z-index and backdrop blur */}
       {showSettings && (
         <div 
-          className="settings-fade-in glass-panel"
+          className="settings-fade-in glass-blur-overlay"
           style={{ 
             position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', 
-            backgroundColor: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', 
+            display: 'flex', alignItems: 'center', 
             justifyContent: 'center', zIndex: 1000
           }}
           onClick={() => setShowSettings(false)}
@@ -185,7 +190,7 @@ export default function GameOverview() {
             style={{ 
               backgroundColor: 'white', padding: '35px', borderRadius: '32px', 
               width: '450px', position: 'relative', color: '#334155',
-              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)'
+              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3)'
             }}
             onClick={(e) => e.stopPropagation()}
           >
