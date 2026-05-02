@@ -9,15 +9,16 @@ const rubik = Rubik({ subsets: ['latin'], weight: ['400', '500', '600', '700'] }
 
 export default function BrainstormingOverview() {
   const [showSettings, setShowSettings] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
   const [visionMode, setVisionMode] = useState('normal');
 
-  const largerSubheadingStyle = {
-    fontSize: '1.5rem',
-    marginBottom: '1rem',
-    fontWeight: 'bold',
-    textTransform: 'uppercase' as const,
-    letterSpacing: '1px',
-    color: '#000000' 
+  // Logic to handle the leaving animation before closing the modal
+  const handleClose = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setShowSettings(false);
+      setIsExiting(false);
+    }, 200); // Duration matches the CSS fadeOut animation
   };
 
   const navButtonStyle = {
@@ -46,27 +47,31 @@ export default function BrainstormingOverview() {
     }}>
       <style jsx global>{`
         @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.98); }
+          from { opacity: 0; transform: scale(0.95); }
           to { opacity: 1; transform: scale(1); }
         }
-        .settings-fade-in {
-          animation: fadeIn 0.2s ease-out forwards;
+        @keyframes fadeOut {
+          from { opacity: 1; transform: scale(1); }
+          to { opacity: 0; transform: scale(0.95); }
         }
-        /* Fix: Backdrop filter requires a background color to be visible */
+        .modal-enter { animation: fadeIn 0.2s ease-out forwards; }
+        .modal-exit { animation: fadeOut 0.2s ease-in forwards; }
+        
+        /* ULTRA HEAVY BLUR */
         .glass-blur-overlay {
-          backdrop-filter: blur(12px) saturate(150%);
-          -webkit-backdrop-filter: blur(12px) saturate(150%);
-          background-color: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(40px) saturate(200%);
+          -webkit-backdrop-filter: blur(40px) saturate(200%);
+          background-color: rgba(0, 0, 0, 0.7);
         }
         body { margin: 0; padding: 0; overflow-x: hidden; }
       `}</style>
 
-      {/* RAIN LAYER: Stays consistent, not affected by vision filters */}
+      {/* RAIN LAYER - Placed behind content to prevent filter distortion */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
         <Rain />
       </div>
 
-      {/* CONTENT LAYER: Affected by color blindness settings */}
+      {/* CONTENT LAYER */}
       <div style={{
         position: 'relative',
         zIndex: 2,
@@ -83,6 +88,7 @@ export default function BrainstormingOverview() {
             margin: '0 auto',
           }}
         >
+          {/* Color Blindness SVG Filters */}
           <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
             <filter id="protanopia-filter" colorInterpolationFilters="sRGB">
               <feColorMatrix values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"/>
@@ -132,70 +138,43 @@ export default function BrainstormingOverview() {
             </div>
           </section>
 
-          <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto', marginTop: '20px' }}>
-            <h2 style={largerSubheadingStyle}>DESIGN PRIORITIES</h2>
-            <div style={{ overflow: 'hidden', background: 'rgba(0, 0, 0, 0.2)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-                <thead>
-                  <tr style={{ background: '#000000', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
-                    <th style={{ padding: '1rem', fontWeight: 'bold' }}>Category</th>
-                    <th style={{ padding: '1rem', fontWeight: 'bold', textAlign: 'right' }}>Importance (%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { label: "Intake Speed", val: "95%", color: "#4dff50" },
-                    { label: "Climb Reliability", val: "85%", color: "#4dff50" },
-                    { label: "Drivetrain Torque", val: "70%", color: "#f9ff4d" },
-                    { label: "Maintenance Access", val: "100%", color: "#4dff50" }
-                  ].map((item, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                      <td style={{ padding: '0.8rem 1rem', color: '#ccc' }}>{item.label}</td>
-                      <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: item.color }}>{item.val}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '4rem', paddingBottom: '4rem' }}>
-              <Link href="/" style={navButtonStyle}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <ChevronLeft size={25} />
-                  <span> Back to Homepage</span>
-                </div>
-              </Link>
-              <Link href="/" style={navButtonStyle}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  Next Page <ChevronRight size={25} />
-                </div>
-              </Link>
-            </div>
-          </section>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '4rem', paddingBottom: '4rem' }}>
+            <Link href="/" style={navButtonStyle}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <ChevronLeft size={25} />
+                <span> Back to Homepage</span>
+              </div>
+            </Link>
+            <Link href="/" style={navButtonStyle}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                Next Page <ChevronRight size={25} />
+              </div>
+            </Link>
+          </div>
         </main>
       </div>
 
-      {/* SETTINGS MODAL: Higher Z-index and backdrop blur */}
+      {/* SETTINGS MODAL */}
       {showSettings && (
         <div 
-          className="settings-fade-in glass-blur-overlay"
+          className={isExiting ? "modal-exit glass-blur-overlay" : "modal-enter glass-blur-overlay"}
           style={{ 
             position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', 
             display: 'flex', alignItems: 'center', 
             justifyContent: 'center', zIndex: 1000
           }}
-          onClick={() => setShowSettings(false)}
+          onClick={handleClose}
         >
           <div 
             style={{ 
               backgroundColor: 'white', padding: '35px', borderRadius: '32px', 
               width: '450px', position: 'relative', color: '#334155',
-              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3)'
+              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)'
             }}
             onClick={(e) => e.stopPropagation()}
           >
             <button 
-              onClick={() => setShowSettings(false)} 
+              onClick={handleClose} 
               style={{ position: 'absolute', top: '30px', right: '30px', background: 'none', border: 'none', cursor: 'pointer' }}
             >
               <X size={24} color="#94a3b8" />
@@ -227,7 +206,7 @@ function VisionBtn({ label, sub, active, onClick, colors }: any) {
       onClick={onClick} 
       style={{ 
         textAlign: 'left', padding: '15px', borderRadius: '16px', border: active ? '2px solid #000' : '2px solid #f1f5f9', 
-        backgroundColor: active ? 'rgba(0,0,0,0.05)' : 'white', transition: '0.2s', width: '100%', cursor: 'pointer'
+        backgroundColor: active ? 'rgba(0,0,0,0.05)' : 'white', width: '100%', cursor: 'pointer'
       }}
     >
       <div style={{ display: 'flex', gap: '5px', marginBottom: '10px' }}>
@@ -235,7 +214,7 @@ function VisionBtn({ label, sub, active, onClick, colors }: any) {
           <div key={i} style={{ height: '8px', backgroundColor: c, flex: 1, borderRadius: '4px' }} />
         ))}
       </div>
-      <div style={{ fontWeight: 500, color: active ? '#000' : '#334155', fontSize: '14px' }}>{label}</div>
+      <div style={{ fontWeight: 700, color: '#000', fontSize: '14px' }}>{label}</div>
       <div style={{ fontSize: '11px', opacity: 0.8, fontWeight: 600 }}>{sub}</div>
     </button>
   );
