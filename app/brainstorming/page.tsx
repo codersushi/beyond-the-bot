@@ -226,7 +226,7 @@ export default function GameOverview() {
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          STARTING WITH THE HEROBOT
+          FAHH
         </h2>
         <p style={{ color: '#aaa', fontSize: '1.1rem', fontStyle: 'italic' }}>
           Time to start learning building principles through this year's Herobot, <strong>Dex</strong>!
@@ -415,7 +415,7 @@ export default function GameOverview() {
           </div>
           </Link>
 
-          <Link href="/brainstorming" style={navButtonStyle}
+          <Link href="/" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
               e.currentTarget.style.color = '#ff8c00';    
