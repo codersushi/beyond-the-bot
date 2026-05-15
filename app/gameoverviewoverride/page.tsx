@@ -147,10 +147,28 @@ export default function GameOverview() {
       x: "48.7%", y: "80%", w: "65px", h: "65px",
     },
     {
-      id: "redpost",
-      title: "RedPost",
-      description: "ing each alliance + wildcard. Robots can only hold 1 pin and 1 cup at a time, and can stack the elements up to 50 inches tall to get points.",
-      x: "48.7%", y: "80%", w: "65px", h: "65px",
+      id: "redpost1",
+      title: "Red Post",
+      description: "The Red Alliance's post. Only the Red Alliance is allowed to stack on this post.",
+      x: "23.3%", y: "80%", w: "30px", h: "30px",
+    },
+    {
+      id: "redpost2",
+      title: "Red Post",
+      description: "The Red Alliance's post. Only the Red Alliance is allowed to stack on this post.",
+      x: "14.8%", y: "65.1%", w: "30px", h: "30px",
+    },
+    {
+      id: "bluepost1",
+      title: "Blue Post",
+      description: "The Blue Alliance's post. Only the Blue Alliance is allowed to stack on this post.",
+      x: "48.7%", y: "35.1%", w: "30px", h: "30px",
+    },
+    {
+      id: "bluepost2",
+      title: "Blue Post",
+      description: "The Blue Alliance's post. Only the Blue Alliance is allowed to stack on this post.",
+      x: "39.7%", y: "35.1%", w: "30px", h: "30px",
     },
   ];
 
