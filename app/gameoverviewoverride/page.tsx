@@ -170,6 +170,34 @@ export default function GameOverview() {
       description: "The Blue Alliance's post. Only the Blue Alliance is allowed to stack on this post.",
       x: "40.2%", y: "20.2%", w: "30px", h: "30px",
     },
+    {
+      id: "sharedpost1",
+      title: "Wildcard Post",
+      description: "Both Alliance's can use this post to stack game elements.",
+      teamThoughts: "If we were to control the black posts, that means that we would be able to score more points, as they can't score on our red posts and are limited to only their blue posts.",
+      x: "23.3%", y: "20.2%", w: "30px", h: "30px",
+    },
+    {
+      id: "sharedpost2",
+      title: "Wildcard Post",
+      description: "Both Alliance's can use this post to stack game elements.",
+      teamThoughts: "If we were to control the black posts, that means that we would be able to score more points, as they can't score on our red posts and are limited to only their blue posts.",
+      x: "14.8%", y: "35.1%", w: "30px", h: "30px",
+    },
+    {
+      id: "sharedpost3",
+      title: "Wildcard Post",
+      description: "Both Alliance's can use this post to stack game elements.",
+      teamThoughts: "If we were to control the black posts, that means that we would be able to score more points, as they can't score on our red posts and are limited to only their blue posts.",
+      x: "48.7%", y: "65.1%", w: "30px", h: "30px",
+    },
+    {
+      id: "sharedpost44",
+      title: "Wildcard Post",
+      description: "Both Alliance's can use this post to stack game elements.",
+      teamThoughts: "If we were to control the black posts, that means that we would be able to score more points, as they can't score on our red posts and are limited to only their blue posts.",
+      x: "40.2%", y: "80%", w: "30px", h: "30px",
+    },
   ];
 
   const generalLinks = [
