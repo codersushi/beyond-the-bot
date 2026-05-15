@@ -168,7 +168,7 @@ export default function GameOverview() {
       id: "bluepost2",
       title: "Blue Post",
       description: "The Blue Alliance's post. Only the Blue Alliance is allowed to stack on this post.",
-      x: "39.7%", y: "35.1%", w: "30px", h: "30px",
+      x: "40.2%", y: "20.2%", w: "30px", h: "30px",
     },
   ];
 
