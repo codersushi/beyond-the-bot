@@ -15,6 +15,8 @@ type FieldObject = {
   y: string;   // Percentage from top
   w: string;   // Width of hitbox
   h: string;   // Height of hitbox
+  transform?: string;
+  transformOrigin?: string;
   links: { title: string; url: string }[]; 
 };
 
@@ -26,7 +28,7 @@ export default function GameOverview() {
       id: "center-goal",
       title: "Center Goal",
       description: "The center goals are field elements located in the middle of the field, consisting of an upper center goal and a lower center goal. Robots can score red and blue blocks into either goal, and a team controls a goal by having more of their alliance colored blocks inside it. Controlling a goal awards an 8-point bonus, which can often swing a match’s score.",
-      x: "31.6%", y: "50%", w: "120px", h: "120px",
+      x: "31.6%", y: "50%", w: "120px", h: "120px", transformOrigin: "center", transform: "rotate(45deg)", 
       links: [
         { title: "Center Goal Rules Q&A: 2782", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2782" },
         { title: "Center Goal Rules Q&A: 2737", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2737" }
@@ -294,18 +296,19 @@ export default function GameOverview() {
                 key={obj.id}
                 onClick={() => setSelected(obj)}
                 style={{
-                  position: "absolute",
-                  left: obj.x,
-                  top: obj.y,
-                  width: obj.w,
-                  height: obj.h,
-                  cursor: "pointer",
-                  background: selected?.id === obj.id ? "rgba(255, 255, 255, 0.3)" : "rgba(251, 255, 0, 0.52)",
-                  border: selected?.id === obj.id ? "3px solid #ffffff" : "2px dashed rgba(255, 255, 255, 0.4)",
-                  transform: "translate(-50%, -50%)",
-                  borderRadius: obj.id === "center-goal" ? "20%" : "12px",
-                  transition: "all 0.2s ease-in-out",
-                  zIndex: 10
+                    position: "absolute",
+                    left: obj.x,
+                    top: obj.y,
+                    width: obj.w,
+                    height: obj.h,
+                    cursor: "pointer",
+                    background: selected?.id === obj.id ? "rgba(255, 255, 255, 0.3)" : "rgba(251, 255, 0, 0.52)",
+                    border: selected?.id === obj.id ? "3px solid #ffffff" : "2px dashed rgba(255, 255, 255, 0.4)",
+                    transform: `translate(-50%, -50%) ${obj.transform ?? ""}`,
+                    transformOrigin: obj.transformOrigin ?? "center",
+                    borderRadius: obj.id === "center-goal" ? "20%" : "12px",
+                    transition: "all 0.2s ease-in-out",
+                    zIndex: 10
                 }}
               />
             ))}
