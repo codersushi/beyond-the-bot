@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Rubik } from "next/font/google";
-import Rain from './components/rain';
+import Rain from './pushback/components/rain';
 import Link from 'next/link';
 import { Lock } from "lucide-react";
 
@@ -80,7 +80,7 @@ export default function Home() {
 
           {/* OVERRIDE BUTTON */}
           <Link 
-            href="/gameoverviewoverride" 
+            href="/override/gameoverviewoverride" 
             onMouseEnter={() => setHoveredButton('override')}
             onMouseLeave={() => setHoveredButton(null)}
             className={rubik.className}

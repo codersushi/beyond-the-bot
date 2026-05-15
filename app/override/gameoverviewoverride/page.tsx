@@ -1,7 +1,7 @@
 'use client';
 import { Rubik } from "next/font/google";
 import { useState } from "react";
-import Rain from '../components/rain';
+import Rain from '../../pushback/components/rain';
 import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft, Lightbulb } from "lucide-react";
 import Link from "next/link";
 
@@ -603,7 +603,7 @@ export default function GameOverview() {
           </div>
           </Link>
 
-          <Link href="/herobotoverride" style={navButtonStyle}
+          <Link href="/override/herobotoverride" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
               e.currentTarget.style.color = '#ff8c00';    
