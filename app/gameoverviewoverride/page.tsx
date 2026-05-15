@@ -206,17 +206,15 @@ export default function GameOverview() {
   ];
 
   const scoringData = [
-    { item: "Autonomous Bonus", points: "10 points" },
-    { item: "Each Block Scored", points: "3 points" },
-    { item: "Each Controlled Zone in a Long Goal", points: "10 points" },
-    { item: "Controlled Center Goal (Upper)", points: "8 points" },
-    { item: "Controlled Center Goal (Lower)", points: "6 points" },
-    { item: "1 Parked Alliance Robot", points: "8 points" },
-    { item: "2 Parked Alliance Robots", points: "30 points" }
+    { item: "Autonomous Bonus", points: "12 points" },
+    { item: "Each Pin Stacked", points: "5 points" },
+    { item: "Yellow Pin (Default)", points: "0 points" },
+    { item: "Yellow Pin (Activated Toggle)", points: "10 points" },
+    { item: "Each Robot In Midfield", points: "8 points" },
   ];
 
   const keyRules = [
-    { rule: "G1: Respect and Civility", desc: "Teams must display sportsmanship. Extreme violations may result in DQs." },
+    { rule: "G1: Respect and Civility", desc: "Teams must display sportsmanship. Extreme violatio   ns may result in DQs." },
     { rule: "SG2: Horizontal Expansion", desc: "Robots may not exceed a horizontal dimension of 36 inches at any point." },
     { rule: "SG3: Vertical Expansion", desc: "Robots may only expand up to 50 inches vertically AFTER the autonomous period and BEFORE the endgame period." },
     { rule: "SG4: Possession Limit", desc: "Robots are limited to holding a maximum of 1 pin and 1 cup simultaneously." }
