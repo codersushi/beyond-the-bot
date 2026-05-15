@@ -498,17 +498,17 @@ export default function GameOverview() {
         <div style={{ textAlign: 'left' }}>
           <h2 style={largerSubheadingStyle}>Alliance Match Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend the first minute &quot;starving&quot; the field of blocks by hoarding them, before spending the final 45 seconds aggressively vying for control of the Center and Long Goals.
+            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend around 1 minute stacking pins and cups on Wildcard and Alliance Posts, before spending the final 20 seconds aggressively vying for control of Center Post and Center Zone.
           </p>
 
           <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized &quot;route&quot;. The most successful runs involve clearing the Loader quickly and focusing on the high-value Upper Center Goal in the first 40 seconds, leaving the final 20 seconds for a guaranteed double-park or filling the Long Goals.
+            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized route. 
           </p>
 
           <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline into segments: the first 20 seconds are dedicated to reliable block intake and positioning, the middle 30 seconds to precision scoring in Controlled Zones, and the final 10 seconds to navigation towards the Parking Zone to maximize end-game multipliers.
+            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline into segments.
           </p>
         </div>
 
@@ -538,7 +538,7 @@ export default function GameOverview() {
           <h2 style={largerSubheadingStyle}>Alliance Gameplay</h2>
           <h3 style={smallerSubheadingStyle}>Alliance Explanation</h3>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient communication, role specialization, and dominating key field elements like the Center and Long Goals.
+            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient communication, role specialization, and dominating key field elements like the Center and Wildcard Posts.
           </p>
           <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
           <ul style={{ listStyle: 'none', paddingLeft: 0, color: '#ccc', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
@@ -556,13 +556,13 @@ export default function GameOverview() {
           <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
           <h2 style={smallerSubheadingStyle}>Driver Skills Explanation</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield zones like the Upper Center Goal and reliable end-game parking.
+            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield scoring methods.
           </p>
 
           <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
           <h2 style={smallerSubheadingStyle}>Autonomous Skills Explanation</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
-            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify blocks and navigate scoring zones independently.
+            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify pins + cups and navigate scoring zones independently.
           </p>
         </div>
       </section>
