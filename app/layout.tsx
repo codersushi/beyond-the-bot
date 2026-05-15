@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "An Engineer's Mind",
+  title: "Beyond The Bot",
   description: "Vex V5 Competition Season Explanation",
 };
 
