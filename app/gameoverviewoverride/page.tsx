@@ -603,7 +603,7 @@ export default function GameOverview() {
           </div>
           </Link>
 
-          <Link href="/Herobot" style={navButtonStyle}
+          <Link href="/Herobotoverride" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
               e.currentTarget.style.color = '#ff8c00';    
