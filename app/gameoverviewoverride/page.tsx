@@ -25,10 +25,10 @@ export default function GameOverview() {
 
   const objects: FieldObject[] = [
     {
-      id: "center-goal",
-      title: "Center Goal",
-      description: "The center goals are field elements located in the middle of the field, consisting of an upper center goal and a lower center goal. Robots can score red and blue blocks into either goal, and a team controls a goal by having more of their alliance colored blocks inside it. Controlling a goal awards an 8-point bonus, which can often swing a match’s score.",
-      x: "31.6%", y: "50%", w: "120px", h: "120px", transformOrigin: "center", transform: "rotate(45deg)", 
+      id: "center-zone",
+      title: "Center Zone",
+      description: "In the game’s center area, the final 10 seconds focus on endgame parking and control, using a King of the Hill mechanic where holding the center increases yellow pin value, with robots limited to a height of 18 inches, and the center zone defined as the invisible cube inside the center tape lines.",
+      x: "31.76%", y: "50.25%", w: "120px", h: "120px", transformOrigin: "center", transform: "rotate(45deg)", 
       links: [
         { title: "Center Goal Rules Q&A: 2782", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2782" },
         { title: "Center Goal Rules Q&A: 2737", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2737" }
@@ -354,7 +354,7 @@ export default function GameOverview() {
                       <Info size={18} strokeWidth={2.5} />
                     </div>
                   </div>
-                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left" }}>
+                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingTop: "1.2rem", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
                     {selected.description}
                   </p>
                 </div>
