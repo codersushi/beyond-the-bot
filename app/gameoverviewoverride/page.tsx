@@ -192,7 +192,7 @@ export default function GameOverview() {
       x: "48.7%", y: "65.1%", w: "30px", h: "30px",
     },
     {
-      id: "sharedpost44",
+      id: "sharedpost4",
       title: "Wildcard Post",
       description: "Both Alliance's can use this post to stack game elements.",
       teamThoughts: "If we were to control the black posts, that means that we would be able to score more points, as they can't score on our red posts and are limited to only their blue posts.",
