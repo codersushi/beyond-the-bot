@@ -10,7 +10,8 @@ const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
 type FieldObject = {
   id: string; 
   title: string; 
-  description: string; 
+  description: string;
+  teamThoughts?: string; 
   x: string;   // Percentage from left
   y: string;   // Percentage from top
   w: string;   // Width of hitbox
@@ -26,13 +27,15 @@ export default function GameOverview() {
     {
       id: "center-zone",
       title: "Center Zone",
-      description: "In the game’s center area, the final 10 seconds focus on endgame parking and control, using a King of the Hill mechanic where holding the center increases yellow pin value, with robots limited to a height of 18 inches, and the center zone defined as the invisible cube inside the center tape lines.",
+      description: "In the final 20 seconds of the match, teams compete for King of the Hill style control, with the alliance holding the most robots in the center zone earning a bonus that scores points for all yellow pins in the center goal.",
+      teamThoughts: "We theorized that using an angled plow could allow us to push teams easier.",
       x: "31.76%", y: "50.25%", w: "120px", h: "120px", transformOrigin: "center", transform: "rotate(45deg)", 
     },
     {
-      id: "long-goal-left",
-      title: "Long Goal (Left)",
-      description: "The long goal is a field element where robots can score red and blue blocks during the match. It provides a consistent scoring location for quickly placing hoarded blocks for points. A control zone located between both long goals can hold up to four blocks. A team gains control by having more of their alliance colored blocks inside it, earning a 10-point bonus.",
+      id: "center-goal",
+      title: "Center Goal",
+      description: "",
+      teamThoughts: "fein",
       x: "31.6%", y: "18%", w: "220px", h: "50px",
     },
     {
@@ -301,29 +304,72 @@ export default function GameOverview() {
                       <Info size={18} strokeWidth={2.5} />
                     </div>
                   </div>
-                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingTop: "1.6rem", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
+                  <p
+                
+                style={{
+                    fontSize: "0.75rem",
+                    fontWeight: "700",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: "#ffffff",
+                    paddingLeft: "0.8rem",
+                    paddingTop: "0.2rem"
+                    }}
+                    >
+                    Summary
+                    </p>
+
+                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingTop: "0.4rem", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
                     {selected.description}
                   </p>
                 </div>
 
-                {selected.id === "center-zone" && (
-                  <div style={{
-                    border: "1px solid rgba(255, 255, 200, 0.3)",
-                    borderRadius: "12px",
-                    padding: "1rem",
-                    background: "rgba(255, 255, 150, 0.1)",
-                    position: "relative",
-                    marginBottom: "0.5rem"
-                  }}>
-                    <div style={{ position: "absolute", top: "10px", right: "10px", opacity: 0.85 }}>
-                      <Lightbulb size={18} strokeWidth={2.5} color="#ffe066" />
-                    </div>
-                    <p style={{ fontSize: "0.75rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#ffe066", marginBottom: "0.4rem", paddingLeft: "0.8rem", paddingTop: "0.2rem" }}>Team Thoughts</p>
-                    <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
-                      We theorized that using an angled plow could allow us to push teams easier.
-                    </p>
-                  </div>
-                )}
+            {selected?.teamThoughts && (
+            <div
+                style={{
+                border: "1px solid rgba(255, 255, 200, 0.3)",
+                borderRadius: "12px",
+                padding: "1rem",
+                background: "rgba(255, 255, 150, 0.1)",
+                position: "relative",
+                marginBottom: "0.5rem"
+                }}
+            >
+                <div style={{ position: "absolute", top: "10px", right: "10px", opacity: 0.85 }}>
+                <Lightbulb size={18} strokeWidth={2.5} color="#ffe066" />
+                </div>
+
+                <p
+                style={{
+                    fontSize: "0.75rem",
+                    fontWeight: "700",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: "#ffe066",
+                    marginBottom: "0.4rem",
+                    paddingLeft: "0.8rem",
+                    paddingTop: "0.2rem"
+                }}
+                >
+                Team Thoughts
+                </p>
+
+                <p
+                style={{
+                    fontSize: "0.9rem",
+                    color: "rgba(255, 255, 255, 0.85)",
+                    lineHeight: "1.5",
+                    fontWeight: "500",
+                    textAlign: "left",
+                    paddingRight: "1.8rem",
+                    paddingLeft: "0.8rem",
+                    paddingBottom: "0.8rem"
+                }}
+                >
+                {selected.teamThoughts}
+                </p>
+            </div>
+            )}
 
               </div>
             ) : (
