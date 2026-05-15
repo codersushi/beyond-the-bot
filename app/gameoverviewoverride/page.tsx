@@ -201,9 +201,8 @@ export default function GameOverview() {
   ];
 
   const generalLinks = [
-    { title: "VEX V5 Game Manual", url: "https://www.vexrobotics.com/push-back-manual?srsltid=AfmBOopYWEGAgtVb5QmFB10j9U7lTJrwfUl5YXwo7-dubIiT1OiQqyxb" },
-    { title: "VRC Safety Standards", url: "https://v5rc-kb.recf.org/hc/en-us/articles/9654207108503-Safety-Procedures-at-VEX-V5-Robotics-Competition-Events/" }
-  ];
+    { title: "VEX V5 Game Manual", url: "https://content.vexrobotics.com/docs/2026-2027/override/files/v5rc-override-0.1.2.pdf" },
+  ]
 
   const scoringData = [
     { item: "Autonomous Bonus", points: "12 points" },
@@ -214,10 +213,10 @@ export default function GameOverview() {
   ];
 
   const keyRules = [
-    { rule: "G1: Respect and Civility", desc: "Teams must display sportsmanship. Extreme violatio   ns may result in DQs." },
-    { rule: "SG2: Horizontal Expansion", desc: "Robots may not exceed a horizontal dimension of 36 inches at any point." },
-    { rule: "SG3: Vertical Expansion", desc: "Robots may only expand up to 50 inches vertically AFTER the autonomous period and BEFORE the endgame period." },
-    { rule: "SG4: Possession Limit", desc: "Robots are limited to holding a maximum of 1 pin and 1 cup simultaneously." }
+    { rule: "SG6: Possession Limit", desc: "Robots are limited to holding a maximum of 1 pin and 1 cup simultaneously." },
+    { rule: "SG10: Removing Scoring Objects", desc: "Scoring objects can't be removed from wildcard posts or opposing alliance posts." },
+    { rule: "SG12: Vertical Expansion", desc: "Robots may only expand up to 50 inches vertically AFTER the autonomous period and BEFORE the endgame period. During the endgame period, robots can't exceed 18 inches." },
+    { rule: "SG9: Alliance Posts", desc: "Alliance Posts are protected. Robots cannot place or remove items from the opposing alliance's posts." }
   ];
 
   const largerSubheadingStyle = {
