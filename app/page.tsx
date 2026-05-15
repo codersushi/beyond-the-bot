@@ -56,7 +56,7 @@ export default function Home() {
 
         {/* HEADER */}
         <h1 className={rubik.className} style={{ textAlign: 'center', fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 'bold', marginTop: '-1.2rem', fontStyle: 'normal' }}>
-          BEYond THE BOT
+          BEYOND THE BOT
         </h1>
 
         {/* BLURB TEXT */}
