@@ -2,7 +2,7 @@
 import { Rubik } from "next/font/google";
 import { useState } from "react";
 import Rain from '../components/rain';
-import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft } from "lucide-react";
+import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft, Lightbulb } from "lucide-react";
 import Link from "next/link";
 
 const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
@@ -17,7 +17,6 @@ type FieldObject = {
   h: string;   // Height of hitbox
   transform?: string;
   transformOrigin?: string;
-  links: { title: string; url: string }[]; 
 };
 
 export default function GameOverview() {
@@ -29,130 +28,78 @@ export default function GameOverview() {
       title: "Center Zone",
       description: "In the game’s center area, the final 10 seconds focus on endgame parking and control, using a King of the Hill mechanic where holding the center increases yellow pin value, with robots limited to a height of 18 inches, and the center zone defined as the invisible cube inside the center tape lines.",
       x: "31.76%", y: "50.25%", w: "120px", h: "120px", transformOrigin: "center", transform: "rotate(45deg)", 
-      links: [
-        { title: "Center Goal Rules Q&A: 2782", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2782" },
-        { title: "Center Goal Rules Q&A: 2737", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2737" }
-      ]
     },
     {
       id: "long-goal-left",
       title: "Long Goal (Left)",
       description: "The long goal is a field element where robots can score red and blue blocks during the match. It provides a consistent scoring location for quickly placing hoarded blocks for points. A control zone located between both long goals can hold up to four blocks. A team gains control by having more of their alliance colored blocks inside it, earning a 10-point bonus.",
       x: "31.6%", y: "18%", w: "220px", h: "50px",
-      links: [
-        { title: "Long Goal Rules Q&A: 3115", url: "https://www.robotevents.com/V5RC/2025-2026/QA/3115" },
-        { title: "Long Goal Rules Q&A: 2789", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2789" }
-      ]
     },
     {
       id: "long-goal-right",
       title: "Long Goal (Right)",
       description: "The long goal is a field element where robots can score red and blue blocks during the match. It provides a consistent scoring location for quickly placing hoarded blocks for points. A control zone located between both long goals can hold up to four blocks. A team gains control by having more of their alliance colored blocks inside it, earning a 10-point bonus.",
       x: "31.6%", y: "82%", w: "220px", h: "50px",
-      links: [
-        { title: "Long Goal Rules Q&A: 3115", url: "https://www.robotevents.com/V5RC/2025-2026/QA/3115" },
-        { title: "Long Goal Rules Q&A: 2789", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2789" }
-      ]
     },
     {
       id: "blue-park-zone",
       title: "Blue Park Zone",
       description: "This is a Blue Alliance Parking Zone.\n\nThe parking zone is a designated area on the field where robots must be fully or partially inside of at the end of the match for points. Parking one robot earns 8 points, while parking two robots earns 30 points.",
       x: "54.7%", y: "50.2%", w: "80px", h: "80px",
-      links: [
-        { title: "Parking Rules Q&A: 3000", url: "https://www.robotevents.com/it/V5RC/2025-2026/QA/3000" },
-        { title: "Parking Rules Q&A: 2772", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2772" }
-      ]
     },
     {
       id: "red-park-zone",
       title: "Red Park Zone",
       description: "This is a Red Alliance Parking Zone.\n\nThe parking zone is a designated area on the field where robots must be fully or partially inside of at the end of the match for points. Parking one robot earns 8 points, while parking two robots earns 30 points.",
       x: "8.6%", y: "50.2%", w: "80px", h: "80px",
-      links: [
-        { title: "Parking Rules Q&A: 3000", url: "https://www.robotevents.com/it/V5RC/2025-2026/QA/3000" },
-        { title: "Parking Rules Q&A: 2772", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2772" }
-      ]
     },
     {
       id: "loader1",
       title: "Loader",
       description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
       x: "5.5%", y: "82%", w: "30px", h: "30px",
-      links: [
-        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
-        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
-      ]
     },
     {
       id: "loader2",
       title: "Loader",
       description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
       x: "5.5%", y: "18%", w: "30px", h: "30px",
-      links: [
-        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
-        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
-      ]
     },
     {
       id: "loader3",
       title: "Loader",
       description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
       x: "57.6%", y: "18%", w: "30px", h: "30px",
-      links: [
-        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
-        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
-      ]
     },
     {
       id: "loader4",
       title: "Loader",
       description: "The loader is a field element that starts the match holding three red and three blue blocks. During the 1:45 driver-controlled period, the loader may place their alliance colored blocks into the tubes for robots to collect and score.",
       x: "57.6%", y: "82%", w: "30px", h: "30px",
-      links: [
-        { title: "Loader Rules Q&A: 2787", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2787" },
-        { title: "Loader Rules Q&A: 2840", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2840" }
-      ]
     },
     {
       id: "blocks1",
       title: "Blocks",
       description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "22.6%", y: "66%", w: "40px", h: "40px",
-      links: [
-        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
-        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
-      ]
     },
     {
       id: "blocks2",
       title: "Blocks",
       description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "22.6%", y: "34%", w: "40px", h: "40px",
-      links: [
-        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
-        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
-      ]
     },
     {
       id: "blocks3",
       title: "Blocks",
       description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "40.6%", y: "66%", w: "40px", h: "40px",
-      links: [
-        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
-        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
-      ]
     },
     {
       id: "blocks4",
       title: "Blocks",
       description: "Blocks are the primary game objects used for scoring in the match. There are red and blue blocks, representing each alliance. Robots can hoard, transport, and score blocks into field elements such as center goals or long goals to earn points.",
       x: "40.6%", y: "34%", w: "40px", h: "40px",
-      links: [
-        { title: "Block Rules Q&A: 2923", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2923" },
-        { title: "Block Rules Q&A: 2809", url: "https://www.robotevents.com/V5RC/2025-2026/QA/2809" }
-      ]
     }
   ];
 
@@ -354,19 +301,30 @@ export default function GameOverview() {
                       <Info size={18} strokeWidth={2.5} />
                     </div>
                   </div>
-                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingTop: "1.2rem", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
+                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingTop: "1.6rem", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
                     {selected.description}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {selected.links.map((link, i) => (
-                    <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.8rem 1rem', background: 'rgba(255, 140, 66, 0.6)', borderRadius: '12px', textDecoration: 'none', color: 'white', border: '1px solid rgba(255, 255, 255, 0.2)', transition: 'all 0.2s' }}>
-                      <span style={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'left' }}>{link.title}</span>
-                      <ExternalLink size={14} opacity={0.7} />
-                    </a>
-                  ))}
-                </div>
+                {selected.id === "center-zone" && (
+                  <div style={{
+                    border: "1px solid rgba(255, 255, 200, 0.3)",
+                    borderRadius: "12px",
+                    padding: "1rem",
+                    background: "rgba(255, 255, 150, 0.1)",
+                    position: "relative",
+                    marginBottom: "0.5rem"
+                  }}>
+                    <div style={{ position: "absolute", top: "10px", right: "10px", opacity: 0.85 }}>
+                      <Lightbulb size={18} strokeWidth={2.5} color="#ffe066" />
+                    </div>
+                    <p style={{ fontSize: "0.75rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#ffe066", marginBottom: "0.4rem", paddingLeft: "0.8rem", paddingTop: "0.2rem" }}>Team Thoughts</p>
+                    <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
+                      We theorized that using an angled plow could allow us to push teams easier.
+                    </p>
+                  </div>
+                )}
+
               </div>
             ) : (
               <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.7)", fontStyle: "italic", textAlign: "left" }}>
