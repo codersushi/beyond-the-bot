@@ -1,6 +1,6 @@
 'use client';
 import { Rubik } from "next/font/google";
-import { useState, useMemo, useEffect} from "react";
+import { useState } from "react";
 import Rain from '../components/rain';
 import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft, Lightbulb } from "lucide-react";
 import Link from "next/link";
@@ -253,22 +253,6 @@ export default function GameOverview() {
     cursor: 'pointer'
   };
 
-    const [pins, setPins] = useState<any[]>([]);
-
-    useEffect(() => {
-      const generatedPins = Array.from({ length: 20 }).map((_, i) => ({
-        id: i,
-        left: Math.random() * 100,
-        top: -(Math.random() * 100),
-        delay: Math.random() * 8,
-        duration: 8 + Math.random() * 10,
-        size: 12 + Math.random() * 10,
-        opacity: 0.15 + Math.random() * 0.3,
-      }));
-
-      setPins(generatedPins);
-    }, []);
-
   return (
     <main
       className={rubik.className}
@@ -281,24 +265,8 @@ export default function GameOverview() {
       }}
     >
 
-      {pins.map((pin) => (
-        <img
-          key={pin.id}
-          src="/pin2.png"
-          className="pinRain"
-          style={{
-            width: `${pin.size}vw`,
-            position: 'fixed',
-            left: `${pin.left}vw`,
-            top: `${pin.top}vh`,
-            animationDelay: `${pin.delay}s`,
-            animationDuration: `${pin.duration}s`,
-            opacity: pin.opacity,
-            zIndex: -1,
-            pointerEvents: 'none',
-          }}
-        />
-      ))}
+      <img src="/pin1.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
+      <img src="/pin2.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
 
       <Rain />
         

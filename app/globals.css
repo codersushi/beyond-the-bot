@@ -50,30 +50,3 @@ body {
   display: inline-block;
   animation: spin 20s linear infinite;
 }
-
-.pinRain {
-  top: -30vh;
-  animation-name: rainFall, spin;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes rainFall {
-  0% {
-    transform: translate(0vw, -20vh) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(40vw, 120vh) rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    rotate: 0deg;
-  }
-
-  to {
-    rotate: 360deg;
-  }
-}
