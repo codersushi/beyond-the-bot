@@ -32,11 +32,11 @@ export default function GameOverview() {
       x: "31.76%", y: "50.25%", w: "120px", h: "120px", transformOrigin: "center", transform: "rotate(45deg)", 
     },
     {
-      id: "center-goal",
+      id: "long-goal-left",
       title: "Center Goal",
-      description: "",
-      teamThoughts: "fein",
-      x: "31.6%", y: "18%", w: "220px", h: "50px",
+      description: "The center zone is where teams stack pins and cups for points. A control bonus awards all points for yellow pins in the center goal to the alliance with the most robots in the zone at the end of the match, regardless of toggle position.",
+      teamThoughts: "If we only score our pins, we still get points even if we lose control.",
+      x: "31.76%", y: "50%", w: "50px", h: "50px",
     },
     {
       id: "long-goal-right",
@@ -329,7 +329,7 @@ export default function GameOverview() {
                 style={{
                 border: "1px solid rgba(255, 255, 200, 0.3)",
                 borderRadius: "12px",
-                padding: "1rem",
+                padding: "0.5rem",
                 background: "rgba(255, 255, 150, 0.1)",
                 position: "relative",
                 marginBottom: "0.5rem"
