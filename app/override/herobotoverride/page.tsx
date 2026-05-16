@@ -193,7 +193,14 @@ export default function GameOverview() {
         {/* SCORING SYSTEM */}
 <h2 style={largerSubheadingStyle}>RATING THE HEROBOT</h2>
 
-<div style={{ overflow: 'hidden', background: 'rgba(255, 140, 66, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
+<div style={{ 
+    overflow: 'hidden', 
+    background: 'rgba(255, 140, 66, 0.1)', 
+    borderRadius: '16px', 
+    border: '1px solid rgba(255, 255, 255, 0.1)', 
+    marginBottom: '3rem' 
+    }}>
+        
   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
     <thead>
       <tr style={{ background: 'rgb(255, 138, 66)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
