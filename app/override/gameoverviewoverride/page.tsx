@@ -292,7 +292,7 @@ export default function GameOverview() {
       </section>
 
       <section style={{ marginBottom: '2.5rem', textAlign: 'center', marginTop: '3rem' }}>
-        <h2 style={{ fontSize: '1.8rem', marginBottom: '0.75rem', fontWeight: 'bold' }}>
+        <h2 style={{ fontSize: '1.8rem', marginBottom: '0.75rem', fontWeight: 'bold', color: '#e67300' }}>
           ALLIANCE OVERVIEW
         </h2>
         <p style={{ lineHeight: '1.7', color: '#ccc', maxWidth: '850px', margin: '0 auto' }}>
@@ -575,14 +575,12 @@ export default function GameOverview() {
          </ul>
 
           <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
-          <h2 style={smallerSubheadingStyle}>Driver Skills Explanation</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
             Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or 
             opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield scoring methods.
           </p>
 
           <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
-          <h2 style={smallerSubheadingStyle}>Autonomous Skills Explanation</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
             Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the 
             team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify pins + cups and navigate scoring 
@@ -619,7 +617,7 @@ export default function GameOverview() {
           display: 'flex', 
           justifyContent: 'center', 
           gap: '2rem', 
-          marginTop: '4rem',
+          marginTop: '2rem',
           paddingBottom: '4rem' 
         }}>
           <Link href="/" style={navButtonStyle}
@@ -634,7 +632,7 @@ export default function GameOverview() {
           >
             
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <ChevronLeft size={25} />
+          <Home size={23} />
           <span> Back to Homepage</span>
           </div>
           </Link>

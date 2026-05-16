@@ -68,6 +68,12 @@ export default function GameOverview() {
         </p>
       </section>
 
+      <div style={{ textAlign: 'center' }}>
+          <h2 style={{ fontSize: '1.8rem', marginBottom: '-2.5rem', fontWeight: 'bold', marginTop: '3rem'}}>
+            BACK TO THE BASICS
+          </h2>
+      </div>  
+
       {/* RESTRUCTURED HEROBOT SECTION */}
       <section style={{ 
         display: 'grid', 
@@ -77,15 +83,19 @@ export default function GameOverview() {
         maxWidth: '1200px', 
         margin: '4rem auto',
         padding: '0 1rem'
-      }}>
+      }}>    
+
         <div style={{ textAlign: 'left' }}>
-          <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 'bold' }}>
-            BACK TO THE BASICS
-          </h2>
+
           <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '2rem' }}>
            Now, this was our team's second season. In our first season, we decided to build the Herobot, as we thought that this would be helpful to us. 
            However, this year, as we were more experienced, we decided to not actually build the Herobot, but just understand it's mechanisisms. The
-           reason we decided this was because 
+           reason we decided this was because last year, it took us over 3 months to build the herobot.
+          </p>
+
+          <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '2rem' }}>
+           Because of this, we lost valuable time that we could have used to design a better robot, which may have allowed us to reach higher competition 
+           levels.
           </p>
 
           <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '1rem' }}>
