@@ -71,6 +71,9 @@ export default function GameOverview() {
       }}
     >
 
+      <img src="/pin1.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
+      <img src="/pin2.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
+
       <Rain />
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
@@ -97,9 +100,9 @@ export default function GameOverview() {
             BACK TO THE BASICS
           </h2>
           <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '2rem' }}>
-            Before our team began brainstorming designs, we collectively decided to build the Herobot first, since all of us were new to V5RC Robotics, 
-            and some of us were completely new to robotics in general. We felt that building the Herobot would help us develop a stronger understanding 
-            of the tools, construction techniques, and overall building process.
+           Now, this was our team's second season. In our first season, we decided to build the Herobot, as we thought that this would be helpful to us. 
+           However, this year, as we were more experienced, we decided to not actually build the Herobot, but just understand it's mechanisisms. The
+           reason we decided this was because 
           </p>
 
           <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '1rem' }}>

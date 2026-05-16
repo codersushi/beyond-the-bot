@@ -12,10 +12,10 @@ type FieldObject = {
   title: string; 
   description: string;
   teamThoughts?: string; 
-  x: string;   // Percentage from left
-  y: string;   // Percentage from top
-  w: string;   // Width of hitbox
-  h: string;   // Height of hitbox
+  x: string;   
+  y: string;   
+  w: string;   
+  h: string;   
   transform?: string;
   transformOrigin?: string;
 };
@@ -278,7 +278,6 @@ export default function GameOverview() {
           Breaking down the 2026–2027 VEX V5 game, <strong>Override</strong>!
         </p>
 
-        {/* REVEAL VIDEO EMBED */}
         <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
           <iframe 
             width="800" 
@@ -303,7 +302,6 @@ export default function GameOverview() {
         </p>
       </section>
 
-      {/* INTERACTIVE FIELD MAP */}
       <div
         style={{
           background: "#ff8c42", 
@@ -324,11 +322,11 @@ export default function GameOverview() {
               alt="VEX V5 Field"
               style={{
                 display: "block",
-                width: "1200px" ,      // INCREASED FROM 1200
+                width: "1200px" ,
                 height: "auto",
                 objectFit: "contain",
                 clipPath: "inset(0% 0% 0% 0%)", 
-                marginLeft: "-180px"  // ADJUSTED TO RE-CENTER LARGER IMAGE
+                marginLeft: "-180px"
               }}
             />
 
@@ -364,7 +362,7 @@ export default function GameOverview() {
               borderRadius: "20px",
               flexShrink: 0,
               alignSelf: "stretch", 
-              margin: "9px 0 9px -390px", // SHIFTED PANEL TO COMPENSATE FOR IMAGE SIZE
+              margin: "9px 0 9px -390px",
               position: "relative",
               zIndex: 20,
               boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
@@ -410,7 +408,16 @@ export default function GameOverview() {
                     Summary
                     </p>
 
-                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.85)", lineHeight: "1.5", fontWeight: "500", textAlign: "left", paddingTop: "0.4rem", paddingRight: "1.8rem", paddingLeft: "0.8rem", paddingBottom: "0.8rem" }}>
+                  <p style={{ 
+                    fontSize: "0.9rem", 
+                    color: "rgba(255, 255, 255, 0.85)", 
+                    lineHeight: "1.5", 
+                    fontWeight: "500", 
+                    textAlign: "left", 
+                    paddingTop: "0.4rem", 
+                    paddingRight: "1.8rem", 
+                    paddingLeft: "0.8rem", 
+                    paddingBottom: "0.8rem" }}>
                     {selected.description}
                   </p>
                 </div>
@@ -473,9 +480,14 @@ export default function GameOverview() {
       </div>
 
       <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto' }}>
-        {/* SCORING SYSTEM */}
         <h2 style={largerSubheadingStyle}>Scoring System</h2>
-        <div style={{ overflow: 'hidden', background: 'rgba(255, 140, 66, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
+        <div style={{ 
+          overflow: 'hidden', 
+          background: 'rgba(255, 140, 66, 0.1)', 
+          borderRadius: '16px', 
+          border: '1px solid rgba(255, 255, 255, 0.1)', 
+          marginBottom: '3rem' 
+          }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
             <thead>
               <tr style={{ background: 'rgb(255, 138, 66)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
@@ -494,27 +506,36 @@ export default function GameOverview() {
           </table>
         </div>
 
-        {/* TIMELINE PARAGRAPHS */}
         <div style={{ textAlign: 'left' }}>
           <h2 style={largerSubheadingStyle}>Alliance Match Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend around 1 minute stacking pins and cups on Wildcard and Alliance Posts, before spending the final 20 seconds aggressively vying for control of Center Post and Center Zone.
+            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed 
+            logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend around 
+            1 minute stacking pins and cups on Wildcard and Alliance Posts, before spending the final 20 seconds aggressively vying for 
+            control of Center Post and Center Zone.
           </p>
 
           <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly optimized route. 
+            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly 
+            optimized route. 
           </p>
 
           <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline into segments.
+            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline 
+            into segments.
           </p>
         </div>
 
-        {/* KEY RULES TABLE */}
         <h2 style={largerSubheadingStyle}>Key Game Rules</h2>
-        <div style={{ overflow: 'hidden', background: 'rgba(230, 115, 0, 0.1)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '3rem' }}>
+        <div style={{ 
+          overflow: 'hidden', 
+          background: 'rgba(230, 115, 0, 0.1)', 
+          borderRadius: '16px', 
+          border: '1px solid rgba(255, 255, 255, 0.1)', 
+          marginBottom: '3rem' 
+          }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
             <thead>
               <tr style={{ background: 'rgb(230, 115, 0)', borderBottom: '1px solid rgba(255, 255, 255, 0.2)' }}>
@@ -533,12 +554,12 @@ export default function GameOverview() {
           </table>
         </div>
 
-        {/* ALLIANCE GAMEPLAY SECTION */}
         <div style={{ marginTop: '2.5rem', textAlign: 'left' }}>
           <h2 style={largerSubheadingStyle}>Alliance Gameplay</h2>
           <h3 style={smallerSubheadingStyle}>Alliance Explanation</h3>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient communication, role specialization, and dominating key field elements like the Center and Wildcard Posts.
+            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient 
+            communication, role specialization, and dominating key field elements like the Center and Wildcard Posts.
           </p>
           <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
           <ul style={{ listStyle: 'none', paddingLeft: 0, color: '#ccc', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
@@ -556,13 +577,16 @@ export default function GameOverview() {
           <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
           <h2 style={smallerSubheadingStyle}>Driver Skills Explanation</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield scoring methods.
+            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or 
+            opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield scoring methods.
           </p>
 
           <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
           <h2 style={smallerSubheadingStyle}>Autonomous Skills Explanation</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
-            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify pins + cups and navigate scoring zones independently.
+            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the 
+            team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify pins + cups and navigate scoring 
+            zones independently.
           </p>
         </div>
       </section>
@@ -571,14 +595,26 @@ export default function GameOverview() {
         <h2 style={largerSubheadingStyle}>Useful Links</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {generalLinks.map((link, index) => (
-            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem 2rem', background: 'rgba(255, 140, 66, 0.4)', borderRadius: '16px', textDecoration: 'none', color: 'white', border: '1px solid rgba(255, 255, 255, 0.1)', transition: 'all 0.2s' }} onMouseOver={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#ff8c42'; e.currentTarget.style.border = '1px solid #ff8c42'; e.currentTarget.style.transform = 'translateY(-2px)'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between', 
+                padding: '1.5rem 2rem', 
+                background: 'rgba(255, 140, 66, 0.4)', 
+                borderRadius: '16px', 
+                textDecoration: 'none', 
+                color: 'white', 
+                border: '1px solid rgba(255, 255, 255, 0.1)', 
+                transition: 'all 0.2s' }} 
+            onMouseOver={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#ff8c42'; e.currentTarget.style.border = '1px solid #ff8c42'; e.currentTarget.style.transform = 'translateY(-2px)'; }} 
+            onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
               <span style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{link.title}</span>
               <ExternalLink size={20} opacity={0.7} />
             </a>
           ))}
         </div>
 
-        {/* BOTTOM NAVIGATION BUTTONS */}
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
