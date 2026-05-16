@@ -630,7 +630,9 @@ export default function GameOverview() {
               e.currentTarget.style.color = 'white';        
             }}
           >
-            
+          
+          //Link Systems
+
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           <Home size={23} />
           <span> Back to Homepage</span>
