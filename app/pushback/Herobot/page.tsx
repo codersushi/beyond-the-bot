@@ -1,7 +1,7 @@
 'use client';
 import { Rubik } from "next/font/google";
 import { useState } from "react";
-import Rain from '../components/rain';
+import Rain from '../../components/rain';
 import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 

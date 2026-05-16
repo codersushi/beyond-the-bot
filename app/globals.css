@@ -11,24 +11,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* --- SCROLLBAR WITH ORANGE BACKGROUND --- */
+/* --- SCROLLBAR WITH TRANSPARENT BACKGROUND --- */
 
 /* 1. Set the width of the scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
-/* 2. The Track (The background of the scrollbar) - SET TO ORANGE */
+/* 2. The Track (The background of the scrollbar) - TRANSPARENT */
 ::-webkit-scrollbar-track {
-  background: #ff8c00 !important; /* This is the "Orange" you requested */
+  background: transparent !important;
 }
 
-/* 3. The Thumb (The moving part) - KEEPING WHITE */
+/* 3. The Thumb (The moving part) - WHITE */
 ::-webkit-scrollbar-thumb {
   background: #ffffff !important;
   border-radius: 10px;
-  /* Adding a small orange border creates a "padding" look */
-  border: 2px solid #ff8c00; 
+  border: 2px solid transparent; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -38,7 +37,7 @@ body {
 /* 4. Firefox support (Thumb color, Track color) */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ffffff #ff8a428e !important;
+  scrollbar-color: #ffffff transparent !important;
 }
 
 /* --- ANIMATIONS --- */

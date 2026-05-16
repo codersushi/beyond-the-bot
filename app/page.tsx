@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Rubik } from "next/font/google";
-import Rain from './pushback/components/rain';
+import Rain from './components/rain';
 import Link from 'next/link';
 import { Lock } from "lucide-react";
 
