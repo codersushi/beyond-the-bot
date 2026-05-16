@@ -1,7 +1,7 @@
 'use client';
 import { Rubik } from "next/font/google";
 import Rain from '../../pushback/components/rain';
-import { ExternalLink, ChevronRight, ChevronLeft } from "lucide-react";
+import { ExternalLink, ChevronRight, ChevronLeft, Home } from "lucide-react";
 import Link from "next/link";
 
 const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
@@ -68,58 +68,77 @@ export default function GameOverview() {
         </p>
       </section>
 
-      <div style={{ textAlign: 'center' }}>
-          <h2 style={{ fontSize: '1.8rem', marginBottom: '-2.5rem', fontWeight: 'bold', marginTop: '3rem'}}>
+      <div style={{
+        background: "#ff8c42",
+        borderRadius: "30px",
+        border: "2px solid #ff9e5e",
+        padding: "2rem 2rem 0 2rem",
+        marginBottom: "4rem",
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ fontSize: '1.8rem', marginBottom: '3rem', fontWeight: 'bold', marginTop: '1rem'}}>
             BACK TO THE BASICS
           </h2>
-      </div>  
+        </div>
 
       {/* RESTRUCTURED HEROBOT SECTION */}
       <section style={{ 
         display: 'grid', 
         gridTemplateColumns: '1fr 1fr', 
         gap: '2rem', 
-        alignItems: 'center', 
+        alignItems: 'stretch', 
         maxWidth: '1200px', 
-        margin: '4rem auto',
+        margin: '2rem auto',
         padding: '0 1rem'
       }}>    
 
-        <div style={{ textAlign: 'left' }}>
-
-          <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '2rem' }}>
-           Now, this was our team's second season. In our first season, we decided to build the Herobot, as we thought that this would be helpful to us. 
-           However, this year, as we were more experienced, we decided to not actually build the Herobot, but just understand it's mechanisisms. The
+        <div style={{ 
+          textAlign: 'left',
+          background: 'rgba(255,255,255,0.15)',
+          borderRadius: '16px',
+          padding: '1.5rem',
+        }}>
+          <p style={{ lineHeight: '1.8', color: 'white', fontSize: '1.1rem', marginBottom: '2rem' }}>
+           Now, this was our team’s second season. In our first season, we decided to build the Herobot, as we thought that this would be helpful to us. 
+           However, this year, as we were more experienced, we decided to not actually build the Herobot, but just understand it’s mechanisisms. The
            reason we decided this was because last year, it took us over 3 months to build the herobot.
           </p>
-
-          <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '2rem' }}>
+          <p style={{ lineHeight: '1.8', color: 'white', fontSize: '1.1rem', marginBottom: '2rem' }}>
            Because of this, we lost valuable time that we could have used to design a better robot, which may have allowed us to reach higher competition 
            levels.
           </p>
-
-          <p style={{ lineHeight: '1.8', color: '#ccc', fontSize: '1.1rem', marginBottom: '1rem' }}>
-            The image to the left is an SVG file of the Herobot designed for this year’s game, Dex. This robot is built to collect up to three blocks 
-            at a time and is capable of picking them up from both the ground and loader stations. However, it is limited to scoring only in the long
-            goal and center-low goal.
+          <p style={{ lineHeight: '1.8', color: 'white', fontSize: '1.1rem', marginBottom: '0' }}>
+            The image to the right is an SVG file of the Herobot designed for this year’s game, Flex. This robot is built to collect 1 pin or 1 cup (or both) 
+            at a time and is capable of picking them up <strong>ONLY IF THEY ARE UPRIGHT</strong>. However, it is limited to only being able to stack up to
+            24 inches, as the 2-bar lift doesn’t expand past that. It is also able to change the toggles using the traction wheel connected to the 2-bar lift.
           </p>
-          
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          background: 'black',
+          borderRadius: '16px',
+          padding: '0',
+          overflow: 'hidden',
+        }}>
           <img 
-            src="/trace.svg" 
+            src="/trace1.svg" 
             alt="HeroBot Schematic Trace" 
             style={{ 
               width: '100%', 
-              maxWidth: '500px', 
-              height: 'auto',
-              border: '6px solid #ff8c00', // Border thickened to 6px
-              borderRadius: '8px' 
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              border: 'none',
+              borderRadius: '16px'
             }} 
           />
         </div>
       </section>
 
+      </div>
 <div style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
   <h2 style={{ ...largerSubheadingStyle, textAlign: 'left' }}>
     USEFUL LINKS
@@ -129,7 +148,7 @@ export default function GameOverview() {
 <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
   
   <a
-    href="https://instructions.online/?id=4063-2025-2026_v5rc_hero_bot_dex"
+    href="https://instructions.online/?id=4063-2026_-_2027_vrc_herobot_flex"
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -162,7 +181,7 @@ export default function GameOverview() {
     }}
   >
     <span style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
-      Dex HeroBot Build Instructions
+      Flex HeroBot Build Instructions
     </span>
 
     <ExternalLink size={20} opacity={0.7} />
@@ -193,22 +212,22 @@ export default function GameOverview() {
 
       <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <td style={{ padding: '0.8rem 1rem', color: '#ccc' }}>Competitiveness</td>
-        <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: '#ff4d4d' }}>
-          30%
+        <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: '#f9ff4d' }}>
+          60%
         </td>
       </tr>
 
       <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <td style={{ padding: '0.8rem 1rem', color: '#ccc' }}>Stability</td>
-        <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: '#f9ff4d' }}>
-          50%
+        <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: '#4dff50' }}>
+          70%
         </td>
       </tr>
 
       <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <td style={{ padding: '0.8rem 1rem', color: '#ccc' }}>Efficiency</td>
         <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: '#ff4d4d' }}>
-          30%
+          50%
         </td>
       </tr>
 
@@ -217,7 +236,7 @@ export default function GameOverview() {
           Total Score
         </td>
         <td style={{ padding: '0.8rem 1rem', textAlign: 'right', fontWeight: 'bold', color: '#f9ff4d' }}>
-          50%
+          67.5%
         </td>
       </tr>
     </tbody>
@@ -228,10 +247,8 @@ export default function GameOverview() {
         <div style={{ textAlign: 'left' }}>
           <h2 style={largerSubheadingStyle}>Summary</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Overall, we concluded that while this model was effective for learning and helped us build a strong foundation, it was not competitive-ready. We also considered 
-            upgrading it for competition use, but quickly realized that key modifications, such as changing the drivetrain motor cartridges, would be difficult to implement. 
-            The motors were integrated in a way that made them hard to remove without disassembling the intake system entirely. Because of these structural limitations, we 
-            ultimately decided it would be more practical and efficient to move forward with designing a fully custom robot.
+            Overall, we concluded that this robot was much better than last year's Herobot, and could definitely be used for competition. However, as the mechanisms
+            (drivetrain, intake, etc.) were just a bit too slow, we ultimately decided not to use the herobot because of these structural limitations.
           </p>
         </div>
 
@@ -243,6 +260,22 @@ export default function GameOverview() {
           marginTop: '4rem',
           paddingBottom: '4rem' 
         }}>
+
+          <Link href="/override/gameoverviewoverride" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <ChevronLeft size={25} /> Previous Page
+            </div>
+          </Link>
+
           <Link href="/" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
@@ -253,9 +286,7 @@ export default function GameOverview() {
               e.currentTarget.style.color = 'white';        
             }}
           >
-            
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <ChevronLeft size={25} />
           <span> Back to Homepage</span>
           </div>
           </Link>
