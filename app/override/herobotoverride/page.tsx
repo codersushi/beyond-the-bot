@@ -1,29 +1,12 @@
 'use client';
 import { Rubik } from "next/font/google";
-import { useState } from "react";
 import Rain from '../../pushback/components/rain';
-import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft } from "lucide-react";
+import { ExternalLink, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 const rubik = Rubik({ subsets: ['latin'], style: ['italic', 'normal'] });
 
-type FieldObject = {
-  id: string; 
-  title: string; 
-  description: string; 
-  x: string;   // Percentage from left
-  y: string;   // Percentage from top
-  w: string;   // Width of hitbox
-  h: string;   // Height of hitbox
-  links: { title: string; url: string }[]; 
-};
-
 export default function GameOverview() {
-
-  const generalLinks = [
-    { title: "VEX V5 Game Manual", url: "https://www.vexrobotics.com/push-back-manual?srsltid=AfmBOopYWEGAgtVb5QmFB10j9U7lTJrwfUl5YXwo7-dubIiT1OiQqyxb" },
-    { title: "VRC Safety Standards", url: "https://v5rc-kb.recf.org/hc/en-us/articles/9654207108503-Safety-Procedures-at-VEX-V5-Robotics-Competition-Events/" }
-  ];
 
   const largerSubheadingStyle = {
     fontSize: '1.5rem',
