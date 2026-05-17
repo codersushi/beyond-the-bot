@@ -68,15 +68,23 @@ export default function Home() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: '400px' }}> 
 
           {/* PUSH BACK BUTTON */}
-          <Link 
-            href="/gameoverview" 
-            onMouseEnter={() => setHoveredButton('pushback')}
-            onMouseLeave={() => setHoveredButton(null)}
-            className={rubik.className}
-            style={getButtonStyle('pushback')}
-          >
-            PUSH BACK - 2025/2026 SEASON
-          </Link>
+          <div style={{ width: '400px', display: 'inline-block', padding: '18px 40px', background: '#828181', border: '3px solid #2a2a2e', borderRadius: '60px', fontSize: '2rem', color: '#2a2060', textDecoration: 'none', position: 'relative', cursor: 'not-allowed' }}>
+            <Lock
+              size={20}
+              style={{
+                position: 'absolute',
+                left: '18px',
+                top: '29px',
+                transform: 'translateY(-50%)',
+                color: '#000',
+                opacity: 0.6,
+                filter: 'drop-shadow(0 0 4px rgba(0,0,0,0.4))'
+              }}
+            />
+            <p className={rubik.className} style={{ textAlign: 'center', fontSize: '1.2rem', fontWeight: '400', color: '#000000', marginTop: '-0.2rem', fontStyle: 'normal'}}>
+              PUSH BACK - 2025/2026 SEASON
+            </p>
+          </div>
 
           {/* OVERRIDE BUTTON */}
           <Link 
