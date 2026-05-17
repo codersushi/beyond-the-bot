@@ -8,11 +8,11 @@
 # Edits
 
 ```
-Initial Creation: 4/10/26 5:02 EST
+Initial Creation: 4/18/26 1:35 PM EST
 
-Version 1.1: 5/16/26 1:23 EST
+Version 1.1: 5/16/26 12:35 PM EST
 
-Version 1.2: 5/16/26 9:02 EST
+Version 1.2: 5/16/26 9:02 PM EST
 ```
 ---
 # Beyond The Bot - About The Project
@@ -22,7 +22,7 @@ Beyond The Bot is a web-based showcase of my engineering journey throughout the 
 ---
 ## How It Works
 
-In the homepage, there are 4 buttons (competition seasons). Click on them, and start reading. It's just like a chapter book!
+In the homepage, there are 4 buttons (competition seasons). Click on them, and start reading. It's just like a engineering book!
 
 ---
 ## Authors
