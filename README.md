@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h2 align="center">
+<strong> BEYOND THE BOT (REPO AND WEBSITE) IS PROTECTED BY A NO-DERIVATIVES LICENSE! </strong>
+</h2>
 
-## Getting Started
+<img width="3840" height="1440" alt="GitHub Banner (15)" src="https://github.com/user-attachments/assets/1f17363a-989d-4948-b5a9-f6758c60f948" />
 
-First, run the development server:
+---
+# Edits
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Initial Creation: 4/10/26 5:02 EST
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Version 1.1: 5/16/26 1:23 EST
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Version 1.2: 5/16/26 9:02 EST
+```
+---
+# Beyond The Bot - About The Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Beyond The Bot is a web-based showcase of my engineering journey throughout the VEX Robotics V5RC competition season! This site documents everything from robot design, coding, and strategy development to competitions, testing, and iterations. I created it to share my progress, challenges, and achievements while also helping others learn more about robotics, engineering, and the design process through my experiences!
 
-## Learn More
+---
+## How It Works
 
-To learn more about Next.js, take a look at the following resources:
+In the homepage, there are 4 buttons (competition seasons). Click on them, and start reading. It's just like a chapter book!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+## Authors
+Built by **codersushi (SushiTheCoder)**!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
+## Live Demo - WIP
+https://beyond-the-bot.vercel.app
 
-## Deploy on Vercel
+---
+## Built With
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 16, TypeScript, Lucide React, CSS |
+| Deployment | Vercel |
+| Tools | Git, Virtual Studio Code |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
+## Project Structure - WIP
+```
+beyond-the-bot/
+├── app/
+│   ├── components/
+│   │   ├── accessibilityButton.tsx
+│   │   ├── rain.tsx
+│   │   └── VisionContext.tsx
+│   │
+│   ├── override/
+│   │   ├── brainstormingoverride/
+│   │   ├── gameoverviewoverride/
+│   │   └── herobotoverride/
+│   │
+│   ├── pushback/
+│   │   ├── brainstorming/
+│   │   ├── gameoverview/
+│   │   └── Herobot/
+│   │
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── public/
+│
+├── node_modules/
+│
+├── .gitignore
+├── AGENTS.md
+├── CLAUDE.md
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+└── tsconfig.json
+```
+---
+## Accessibility
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The UI includes a colorblind mode selector (protanopia, deuteranopia, tritanopia, achromatopsia) and a light/dark theme toggle, both accessible via the settings panel.
+
