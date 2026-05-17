@@ -22,7 +22,7 @@ Beyond The Bot is a web-based showcase of my engineering journey throughout the 
 ---
 ## How It Works
 
-In the homepage, there are 4 buttons (competition seasons). Click on them, and start reading. It's just like a chapter book!
+In the homepage, there are 4 buttons (competition seasons). Click on them, and start reading. It's just like a engineering book!
 
 ---
 ## Authors
