@@ -8,11 +8,11 @@
 # Edits
 
 ```
-Initial Creation: 4/10/26 5:02 EST
+Initial Creation: 4/18/26 1:35 PM EST
 
-Version 1.1: 5/16/26 1:23 EST
+Version 1.1: 5/16/26 12:35 PM EST
 
-Version 1.2: 5/16/26 9:02 EST
+Version 1.2: 5/16/26 9:02 PM EST
 ```
 ---
 # Beyond The Bot - About The Project
