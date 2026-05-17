@@ -1,7 +1,12 @@
+//THIS IS A TEMPLATE FOR ADDING ON, NOT ACTUALLY LINKED ANYWHERE
+
 'use client';
 import { Rubik } from "next/font/google";
 import { useState } from "react";
-import Rain from '../../components/rain';
+
+//import Rain from '../../components/rain';
+{/*THIS NEEDS TO BE UN-COMMENTED IN ACTUAL CODE */}
+
 import { Info, ExternalLink, Home, ChevronRight, FileText, ChevronLeft, Lightbulb } from "lucide-react";
 import Link from "next/link";
 
@@ -62,7 +67,7 @@ export default function GameOverview() {
       <img src="/Pin1.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', top: '-10vw', right: '-30vw', opacity: 0.3}} />
       <img src="/Pin2.png" className="spin" style={{ width: '70vw', height: '40vw', zIndex: -1, position: 'fixed', bottom: '-10vw', left: '-30vw', opacity: 0.5}} />
 
-      <Rain />
+      {/* <Rain /> THIS NEEDS TO BE UN-COMMENTED IN CODE*/}
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
