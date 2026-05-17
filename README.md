@@ -1,4 +1,6 @@
-# BEYOND THE BOT (REPO AND WEBSITE) IS LICENSED!
+<h2 align="center">
+<strong> BEYOND THE BOT (REPO AND WEBSITE) IS LICENSED! </strong>
+</h2>
 
 <img width="3840" height="1440" alt="GitHub Banner (15)" src="https://github.com/user-attachments/assets/1f17363a-989d-4948-b5a9-f6758c60f948" />
 
