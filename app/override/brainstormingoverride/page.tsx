@@ -74,25 +74,21 @@ export default function GameOverview() {
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          BRAINSTORMING
+          POINTS PER SECOND (PPS)
         </h2>
         <p style={{ color: '#aaa', fontSize: '1.1rem', fontStyle: 'italic' }}>
-          Exploring early ideas, strategies, and design concepts for our <strong>future robot?</strong>
+          Exploring scoring efficiency, cycle optimization, and strategic decision-making through <strong>PPS</strong>.
         </p>
       </section>
 
       <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto' }}>
-
-      <div style={{ textAlign: 'center' }}>
-        <h2 style={{ ...largerSubheadingStyle, color: '#e88a00' }}>Points Per Second (PPS)</h2>
-      </div>
 
       <div style={{
         background: 'rgba(255, 120, 0, 0.45)',
         borderRadius: '20px',
         border: '1px solid rgba(255, 140, 0, 0.6)',
         padding: '2rem',
-        marginBottom: '3rem',
+        marginBottom: '-2rem',
       }}>
       <div style={{ textAlign: 'center' }}>
 
@@ -179,88 +175,33 @@ export default function GameOverview() {
           </p>
         </div>
       </div>
-      </div>
-
-        <div style={{ textAlign: 'left' }}>
-          <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
-          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly 
-            optimized route. 
-          </p>
-
-          <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
-          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline 
-            into segments.
-          </p>
-        </div>
-
-        <div style={{ marginTop: '2.5rem', textAlign: 'left' }}>
-          <h2 style={largerSubheadingStyle}>Alliance Gameplay</h2>
-          <h3 style={smallerSubheadingStyle}>Alliance Explanation</h3>
-          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient 
-            communication, role specialization, and dominating key field elements like the Center and Wildcard Posts.
-          </p>
-          <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
-          <ul style={{ listStyle: 'none', paddingLeft: 0, color: '#ccc', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
-          <li style={{ marginBottom: '10px' }}>
-            • <strong style={{ color: '#ff7300' }}>Driver:</strong> Primary manual control and precision movement of the robot.
-          </li>
-          <li style={{ marginBottom: '10px' }}>
-           • <strong style={{ color: '#ff7300' }}>Loader:</strong> Introduces alliance-colored blocks into the field using loader mechanisms.
-          </li>
-          <li>
-          • <strong style={{ color: '#ff7300' }}>Strategist:</strong> Maintains a high-level view and communicates with the alliance partner.
-         </li>
-         </ul>
-
-          <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
-          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or 
-            opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield scoring methods.
-          </p>
-
-          <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
-          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
-            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the 
-            team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify pins + cups and navigate scoring 
-            zones independently.
-          </p>
-        </div>
-      </section>
+     </div>
+    </section>
 
       <section style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h2 style={largerSubheadingStyle}>Useful Links</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {generalLinks.map((link, index) => (
-            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" 
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'space-between', 
-                padding: '1.5rem 2rem', 
-                background: 'rgba(255, 140, 66, 0.4)', 
-                borderRadius: '16px', 
-                textDecoration: 'none', 
-                color: 'white', 
-                border: '1px solid rgba(255, 255, 255, 0.1)', 
-                transition: 'all 0.2s' }} 
-            onMouseOver={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#ff8c42'; e.currentTarget.style.border = '1px solid #ff8c42'; e.currentTarget.style.transform = 'translateY(-2px)'; }} 
-            onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <span style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{link.title}</span>
-              <ExternalLink size={20} opacity={0.7} />
-            </a>
-          ))}
-        </div>
 
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
           gap: '2rem', 
-          marginTop: '2rem',
-          paddingBottom: '4rem' 
+          paddingBottom: '4rem', 
         }}>
+
+          <Link href="/override/herobotoverride" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <ChevronLeft size={25} /> Previous Page
+            </div>
+          </Link>
+
           <Link href="/" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
@@ -271,14 +212,12 @@ export default function GameOverview() {
               e.currentTarget.style.color = 'white';        
             }}
           >
-
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <Home size={23} />
           <span> Back to Homepage</span>
           </div>
           </Link>
 
-          <Link href="/override/herobotoverride" style={navButtonStyle}
+          <Link href="/override/brainstormingoverride2" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
               e.currentTarget.style.color = '#ff8c00';    
@@ -295,5 +234,5 @@ export default function GameOverview() {
         </div>
       </section>
     </main>
-  );
+  )
 }
