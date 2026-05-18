@@ -66,94 +66,37 @@ export default function GameOverview() {
         
       <section style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          TEMPLATE
+          ROBOT ELEMENTS
         </h2>
         <p style={{ color: '#aaa', fontSize: '1.1rem', fontStyle: 'italic' }}>
-          linus edum pros liks elses dece all teh pro balwstar
+          What should we add to our robot?
         </p>
       </section>
 
       <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto' }}>
 
-        <div style={{ textAlign: 'left' }}>
-          <h2 style={largerSubheadingStyle}>Alliance Match Timeline</h2>
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={largerSubheadingStyle}>Drivetrain</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            A standard Alliance match lasts 2 minutes. It begins with a 15-second Autonomous Period where robots follow pre-programmed 
-            logic to secure the Autonomous Bonus. This is followed by a 1:45 Driver-Controlled period. Alliances typically spend around 
-            1 minute stacking pins and cups on Wildcard and Alliance Posts, before spending the final 20 seconds aggressively vying for 
-            control of Center Post and Center Zone.
+            <strong>Because there is a 55 watt drivetrain limit for this year's game, we decided to re-use last year's drivetrain with a couple of modifications.</strong>
           </p>
 
-          <h2 style={largerSubheadingStyle}>Driving Skills Timeline</h2>
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            The Driving Skills challenge is a 60-second sprint. Without an autonomous phase or partners, the driver must execute a highly 
-            optimized route. 
+            First, let's talk about last year's drivetrain. Overall, we rated it a solid 8.5/10 for a couple of reasons. First, we used a 44 watt 360 rpm 
+            drive, and during competitions, we felt that this was a good balance between speed and torque. As the driver of the team, I would honestly 
+            say that it was really easy to do complex turns with it, and even our coder agreed that it was decently easy to code with it.
           </p>
 
-          <h2 style={largerSubheadingStyle}>Autonomous Skills Timeline</h2>
+          <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem', fontStyle: 'italic' }}>
+            Although we were using block coding for the entirety of the 2025 - 2026 Push Back season, during our off-season, we learned how to use
+            LemLib and C++, as this type of coding allowed us to have more control of our robot through complex coding methods such as PID and Odometry 
+            tracking systems.
+          </p>
+
           <p style={{ color: '#ccc', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Autonomous Skills runs for 60 seconds and is the ultimate test of sensor integration. Most elite programs split the timeline 
-            into segments.
+            For our modifications, we decided to add two 5.5 watt motors to each side of the drivetrain for extra power, as last year, we felt our 
+            drivetrain overheated way too fast. We also decided to slightly modify the gear train for more effective power transferring.
           </p>
-        </div>
-
-        <div style={{ marginTop: '2.5rem', textAlign: 'left' }}>
-          <h2 style={largerSubheadingStyle}>Alliance Gameplay</h2>
-          <h3 style={smallerSubheadingStyle}>Alliance Explanation</h3>
-          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Alliances consist of two teams working together to maximize their score through coordinated strategies. Success depends on efficient 
-            communication, role specialization, and dominating key field elements like the Center and Wildcard Posts.
-          </p>
-          <h3 style={smallerSubheadingStyle}>Drive Team Roles</h3>
-          <ul style={{ listStyle: 'none', paddingLeft: 0, color: '#ccc', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
-          <li style={{ marginBottom: '10px' }}>
-            • <strong style={{ color: '#ff7300' }}>Driver:</strong> Primary manual control and precision movement of the robot.
-          </li>
-          <li style={{ marginBottom: '10px' }}>
-           • <strong style={{ color: '#ff7300' }}>Loader:</strong> Introduces alliance-colored blocks into the field using loader mechanisms.
-          </li>
-          <li>
-          • <strong style={{ color: '#ff7300' }}>Strategist:</strong> Maintains a high-level view and communicates with the alliance partner.
-         </li>
-         </ul>
-
-          <h2 style={largerSubheadingStyle}>Driver Skills Gameplay</h2>
-          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '2rem' }}>
-            Driver Skills is a one-minute challenge where a single team attempts to score as many points as possible. Without a partner or 
-            opponents, the focus shifts to pure mechanical efficiency and driving precision, often prioritizing high-yield scoring methods.
-          </p>
-
-          <h2 style={largerSubheadingStyle}>Autonomous Skills Gameplay</h2>
-          <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', marginBottom: '-2rem' }}>
-            Autonomous Skills consists of a 60-second period where the robot operates entirely without human interference. This mode tests the 
-            team&apos;s programming skill, sensor reliability, and pathfinding logic as the robot must identify pins + cups and navigate scoring 
-            zones independently.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h2 style={largerSubheadingStyle}>Useful Links</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {generalLinks.map((link, index) => (
-            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" 
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'space-between', 
-                padding: '1.5rem 2rem', 
-                background: 'rgba(255, 140, 66, 0.4)', 
-                borderRadius: '16px', 
-                textDecoration: 'none', 
-                color: 'white', 
-                border: '1px solid rgba(255, 255, 255, 0.1)', 
-                transition: 'all 0.2s' }} 
-            onMouseOver={(e) => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#ff8c42'; e.currentTarget.style.border = '1px solid #ff8c42'; e.currentTarget.style.transform = 'translateY(-2px)'; }} 
-            onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 140, 66, 0.4)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <span style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{link.title}</span>
-              <ExternalLink size={20} opacity={0.7} />
-            </a>
-          ))}
         </div>
 
         <div style={{ 
