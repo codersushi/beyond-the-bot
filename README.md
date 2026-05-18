@@ -13,6 +13,8 @@ Initial Creation: 4/18/26 1:35 PM EST
 Version 1.1: 5/16/26 12:35 PM EST
 
 Version 1.2: 5/16/26 9:02 PM EST
+
+Version 1.3 5/17/26 4:48 PM EST
 ```
 ---
 # Beyond The Bot - About The Project
