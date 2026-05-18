@@ -98,14 +98,32 @@ export default function GameOverview() {
             drivetrain overheated way too fast. We also decided to slightly modify the gear train for more effective power transferring.
           </p>
         </div>
+      </section>
+
+      <section style={{ maxWidth: '800px', margin: '0 auto' }}>
 
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
           gap: '2rem', 
-          marginTop: '2rem',
-          paddingBottom: '4rem' 
+          paddingBottom: '4rem', 
         }}>
+
+          <Link href="/override/brainstormingoverride" style={navButtonStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'white'; 
+              e.currentTarget.style.color = '#ff8c00';    
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#ff8c00'; 
+              e.currentTarget.style.color = 'white';        
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <ChevronLeft size={25} /> Previous Page
+            </div>
+          </Link>
+
           <Link href="/" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
@@ -116,14 +134,12 @@ export default function GameOverview() {
               e.currentTarget.style.color = 'white';        
             }}
           >
-
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <Home size={23} />
           <span> Back to Homepage</span>
           </div>
           </Link>
 
-          <Link href="/override/herobotoverride" style={navButtonStyle}
+          <Link href="/override/robotiteration1" style={navButtonStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white'; 
               e.currentTarget.style.color = '#ff8c00';    
